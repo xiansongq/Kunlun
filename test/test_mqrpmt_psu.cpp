@@ -144,8 +144,8 @@ int main()
         std::string filter_type = "bloom"; 
         size_t computational_security_parameter = 128;         
         size_t statistical_security_parameter = 40; 
-        size_t LOG_SENDER_LEN = 20;
-        size_t LOG_RECEIVER_LEN = 20;  
+        size_t LOG_SENDER_LEN = 10;
+        size_t LOG_RECEIVER_LEN = 10;
         pp = mqRPMTPSU::Setup("bloom", computational_security_parameter, statistical_security_parameter, 
                               LOG_SENDER_LEN, LOG_RECEIVER_LEN); 
         mqRPMTPSU::SavePP(pp, pp_filename); 

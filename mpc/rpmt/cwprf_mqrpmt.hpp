@@ -263,7 +263,7 @@ std::vector<uint8_t> Server(NetIO &io, PP &pp, std::vector<block> &vec_Y)
 {
     if(pp.SERVER_LEN != vec_Y.size()){
         std::cerr << "input size of vec_Y does not match public parameters" << std::endl;
-        exit(1);  
+        exit(1);
     }
 
     PrintSplitLine('-'); 
@@ -289,7 +289,7 @@ std::vector<uint8_t> Server(NetIO &io, PP &pp, std::vector<block> &vec_Y)
     std::cout << " [" << 32*pp.SERVER_LEN/(1024*1024) << " MB]" << std::endl;
 
     std::vector<EC25519Point> vec_Fk2_X(pp.CLIENT_LEN); 
-    io.ReceiveEC25519Points(vec_Fk2_X.data(), pp.CLIENT_LEN);
+    io.ReceiveEC25519Points(vec_Fk2_X.data(),  pp.CLIENT_LEN);
 
     std::vector<EC25519Point> vec_Fk1k2_X(pp.CLIENT_LEN); 
     #pragma omp parallel for num_threads(thread_count)
@@ -334,7 +334,7 @@ void Client(NetIO &io, PP &pp, std::vector<block> &vec_X)
 {    
     if(pp.CLIENT_LEN != vec_X.size()){
         std::cerr << "input size of vec_Y does not match public parameters" << std::endl;
-        exit(1);  
+        exit(1);
     }
     
     PrintSplitLine('-'); 

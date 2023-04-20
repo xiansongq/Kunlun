@@ -16,8 +16,8 @@
 #include "../include/std.inc"
 #include "../crypto/ec_point.hpp"
 
-const static size_t NETWORK_BUFFER_SIZE = 1024*1024;
-const static size_t FILE_BUFFER_SIZE = 1024*16;
+const static size_t NETWORK_BUFFER_SIZE = 1024*1024;  //网络缓冲区大小
+const static size_t FILE_BUFFER_SIZE = 1024*16;     //文件缓冲区大小
 
 class NetIO{ 
 public:
@@ -30,13 +30,13 @@ public:
 	std::string address;
 	int port;
 
-	NetIO(std::string party, std::string address, int port); 
+	NetIO(std::string party, std::string address, int port);   //构造函数
 
-	void SetNodelay();
-	void SetDelay();
+	void SetNodelay();  //设置TCP_NODELAY选项
+	void SetDelay();    //关闭TCP_NODELY选项
 
-	void SendDataInternal(const void *data, size_t LEN); 
-	void ReceiveDataInternal(const void *data, size_t LEN); 
+	void SendDataInternal(const void *data, size_t LEN);    //发送数据到缓冲区
+	void ReceiveDataInternal(const void *data, size_t LEN);  //接收数据到缓冲区
 
 	void SendBytes(const void *data, size_t LEN);  
 	void ReceiveBytes(void *data, size_t LEN); 
@@ -255,7 +255,7 @@ void NetIO::ReceiveBits(uint8_t *data, size_t LEN)
 	ReceiveBytes(data, LEN);
 }
 
-void NetIO::SendString(char *data, size_t LEN) 
+void NetIO::SendString(char *data, size_t LEN)
 {
 	SendBytes(data, LEN);
 }
@@ -313,7 +313,7 @@ void NetIO::ReceiveECPoints(ECPoint* A, size_t LEN)
 		}
 	#endif
 
-	delete[] buffer; 
+	delete[] buffer;
 }
 
 

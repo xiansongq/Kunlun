@@ -1,0 +1,7 @@
+# ninja log v5
+1	8775	1677301325825354520	CMakeFiles/test_cwprf_psi.dir/test/test_cwprf_psi.cpp.o	20401ef5065b039d
+2	509	1677301453593643327	/home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi	b4270fb4635e276f
+5	8104	1677226829904858340	CMakeFiles/test_iknp_ote.dir/test/test_iknp_ote.cpp.o	1c9a7a5cf220a5bf
+2	806	1677299237677383031	/home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote	94152c7727680478
+0	7661	1677299416496372585	CMakeFiles/test_mqrpmt.dir/test/test_mqrpmt.cpp.o	63748d5e58e35bac
+7662	8263	1677299417096429767	/home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt	81bd92429d7669e1

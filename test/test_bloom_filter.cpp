@@ -32,7 +32,7 @@ void test_bloom_filter()
 
     
     std::vector<std::string> word_list; 
-    ReadFileToContainer("word-list-extra-large.txt", word_list); 
+    ReadFileToContainer("testcase/bloom_test_case/word-list-extra-large.txt", word_list);
     size_t max_element_num = word_list.size();  
     double statistical_security_parameter = 40;
     BloomFilter filter(max_element_num, statistical_security_parameter);

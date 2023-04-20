@@ -12,7 +12,7 @@ thread_count indicates the maximum number of threads that openmp works
 #include "std.inc"
 
 #define PARALLEL
-const static size_t thread_count = 8; // maximum thread count 
+const static size_t thread_count = 8; // maximum thread count
 
 const static size_t CHECK_BUFFER_SIZE = 1024*8;
 

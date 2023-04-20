@@ -108,8 +108,8 @@ void FetchPP(PP &pp, std::string pp_filename)
 void Send(NetIO &io, PP &pp, std::vector<block> &vec_X) 
 {
     if(vec_X.size() != pp.SENDER_LEN){
-        std::cerr << "|X| does not match public parameter" << std::endl; 
-        exit(1); 
+        std::cerr << "|X| does not match public parameter" << std::endl;
+        exit(1);
     }
 
     auto start_time = std::chrono::steady_clock::now(); 
@@ -129,8 +129,8 @@ void Send(NetIO &io, PP &pp, std::vector<block> &vec_X)
 std::vector<block> Receive(NetIO &io, PP &pp, std::vector<block> &vec_Y) 
 {
     if(vec_Y.size() != pp.RECEIVER_LEN){
-        std::cerr << "|Y| does not match public parameter" << std::endl; 
-        exit(1); 
+        std::cerr << "|Y| does not match public parameter" << std::endl;
+        exit(1);
     }
 
     auto start_time = std::chrono::steady_clock::now(); 

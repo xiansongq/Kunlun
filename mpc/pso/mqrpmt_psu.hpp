@@ -40,9 +40,7 @@ PP Setup(std::string filter_type,
     pp.LOG_SENDER_LEN = LOG_SENDER_LEN; 
     pp.LOG_RECEIVER_LEN = LOG_RECEIVER_LEN; 
     pp.SENDER_LEN = size_t(pow(2, pp.LOG_SENDER_LEN));
-    pp.RECEIVER_LEN = size_t(pow(2, pp.LOG_RECEIVER_LEN)); 
-
-    return pp; 
+    pp.RECEIVER_LEN = size_t(pow(2, pp.LOG_RECEIVER_LEN));
 }
 
 // serialize pp to stream
