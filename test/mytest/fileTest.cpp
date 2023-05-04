@@ -10,7 +10,7 @@
 
 int main() {
     CRYPTO_Initialize();
-    OPRFPSI::PP pp;
+    cwPRFPSI::PP pp;
     pp=cwPRFPSI::Setup(128, 40, 20, 20);
     //pp = cwPRFPSI::Setup("bloom", 128, 40, 20, 20);
     std::vector<block> vecx;

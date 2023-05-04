@@ -3,7 +3,7 @@
 //
 
 #include "../../mpc/pir/sealpir_keyword.hpp"
-#include <seal/seal.h>
+
 
 #include<iostream>
 
