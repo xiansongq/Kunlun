@@ -117,9 +117,9 @@ TARGET_LINK_LIBRARIES(mytest ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_
 ADD_EXECUTABLE(mypsu test/mypsuTest.cpp)
 TARGET_LINK_LIBRARIES(mypsu ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
-#myfiletest
-ADD_EXECUTABLE(myfile test/mytest/fileTest.cpp test/mytest/PirTest.cpp)
-TARGET_LINK_LIBRARIES(myfile ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+#cwPRF psi
+ADD_EXECUTABLE(test_psi_from_cwprf test/mytest/test_psi_from_cwprf.cpp )
+TARGET_LINK_LIBRARIES(test_psi_from_cwprf ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
 # oprf
 ADD_EXECUTABLE(test_oteoprf test/test_oteoprf.cpp)
@@ -195,13 +195,11 @@ if(NOT SEAL_FOUND)
 else()
     message(STATUS "Microsoft SEAL: ${SEAL_DIR}")
 endif()
-# 找不到头文件的临时解决方法
-#find_path(SEAL_INCLUDE_DIRS seal/seal.h PATH_SUFFIXES SEAL-4.0)
-#include_directories(${SEAL_INCLUDE_DIRS})
+
 
 add_library(sealpir mpc/pir/pir.hpp mpc/pir/pir.cpp mpc/pir/pir_client.hpp mpc/pir/pir_client.cpp mpc/pir/pir_server.hpp
         mpc/pir/pir_server.cpp  )
-# mpc/pir/sealpir_keyword.hpp mpc/pir/seal_pir.hpp
+
 
 target_link_libraries(sealpir SEAL::seal)
 

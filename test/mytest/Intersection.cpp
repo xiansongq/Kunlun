@@ -11,7 +11,7 @@
 #include <unordered_set>
 using namespace std;
 /*
- * 本地不安全计算 集合交集
+ * local plaintext private set intersection
  *
  * */
 int main(){

@@ -2,6 +2,7 @@
 // Created by 17579 on 2023/5/5.
 //
 
+
 #include <iostream>
 
 #include <fstream>
@@ -10,11 +11,14 @@
 #include <unordered_set>
 using namespace std;
 
+/*
+ *  check intersection result
+ * */
 int main(){
     unordered_set<string> str1;
     unordered_set<string>  str2;
     std::ifstream fin;
-    fin.open("D:\\xiansong\\ClionProject\\build\\oprf_psi_out.txt", std::ios::binary);
+    fin.open("D:\\xiansong\\ClionProject\\test\\mytest\\oprf_psi_out.txt", std::ios::binary);
     if (!fin) {
         std::cout << "Failed to open file A_PSI_DATA" << std::endl;
         return -1;
@@ -30,7 +34,7 @@ int main(){
     }
     fin.close();
     std::ifstream fin1;
-    fin1.open("D:\\xiansong\\ClionProject\\test\\mytest\\oprf_psi_out.txt", std::ios::binary);
+    fin1.open("D:\\xiansong\\ClionProject\\build\\out.txt", std::ios::binary);
     if (!fin1) {
         std::cout << "Failed to open file B_PSI_DATA" << std::endl;
         return -1;
@@ -63,7 +67,7 @@ int main(){
     }
     fout.close();
     double rate=(double)err/(double)count;
-    cout<<rate<<endl;
+    cout<<"error rate: "<< rate<<endl;
     return 0;
 
 }

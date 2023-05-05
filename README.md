@@ -152,6 +152,10 @@ do the same modification as in MACOS, then compile it according to
     * mqrpmt_psu.hpp: union
     * mqrpmt_private_id.hpp: private-id protocol based on OTE-based OPRF and cwPRF-based mqRPMT
 
+  - /psi
+    * cwprf_psi.hpp set intersection based on cePRF
+    * psi_from_oprf.hpp private set intersection based on OTE-based OPRF
+    
   - /pir
     * pir.hpp pir.cpp SEALPIR sources code
     * pir_client.hpp pir_client.cpp SEALPIR Client
