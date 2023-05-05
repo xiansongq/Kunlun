@@ -153,7 +153,7 @@ do the same modification as in MACOS, then compile it according to
     * mqrpmt_private_id.hpp: private-id protocol based on OTE-based OPRF and cwPRF-based mqRPMT
 
   - /psi
-    * cwprf_psi.hpp set intersection based on cePRF
+    * cwprf_psi.hpp private set intersection based on cwPRF
     * psi_from_oprf.hpp private set intersection based on OTE-based OPRF
     
   - /pir
