@@ -10,8 +10,8 @@
 
 int main() {
     CRYPTO_Initialize();
-    cwPRFPSI::PP pp;
-    pp=cwPRFPSI::Setup(128, 40, 20, 20);
+    mqRPMTPSI::PP pp;
+    pp=mqRPMTPSI::Setup("bloom",128, 40, 20, 20);
     //pp = cwPRFPSI::Setup("bloom", 128, 40, 20, 20);
     std::vector<block> vecx;
     //从文件读取数据
@@ -64,12 +64,12 @@ int main() {
     std::vector<block> vec_intersection_prime;
     if (party == "sender") {
         NetIO client("client", "127.0.0.1", 8090);
-        cwPRFPSI::Send(client, pp, vecx);
+        mqRPMTPSI::Send(client, pp, vecx);
     }
 
     if (party == "receiver") {
         NetIO server("server", "", 8090);
-        vec_intersection_prime = cwPRFPSI::Receive(server, pp, vecy);
+        vec_intersection_prime = mqRPMTPSI::Receive(server, pp, vecy);
 //        std::set<block, BlockCompare> set_diff_result =
 //                ComputeSetDifference(vec_intersection_prime, testcase.vec_intersection);
 //
@@ -107,6 +107,5 @@ int main() {
 
     return 0;
 
-    CRYPTO_Finalize();
 
 }

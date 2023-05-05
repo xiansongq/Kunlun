@@ -156,6 +156,21 @@ namespace Block {
         }
     }
 
+    // __m128i to __uint128_t
+    __uint128_t TO__uint128_t(block a) {
+        __uint128_t b;
+        memcpy(&b, &a, sizeof(a));
+        return b;
+    }
+
+    // __uint128_t to __m128i
+    block TO_block(__uint128_t a) {
+        unsigned long long high = (unsigned long long) (a >> 64);  // 高 64 位
+        unsigned long long low = (unsigned long long) (a & 0xffffffffffffffff); // 低 64 位
+        block b = MakeBlock(high, low);
+        return b;
+    }
+
 
     inline void PrintBlock(const block &a) {
         std::cout << std::hex;

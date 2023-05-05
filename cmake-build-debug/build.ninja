@@ -51,11 +51,9 @@ build cmake_object_order_depends_target_test_netio: phony || CMakeFiles/test_net
 
 build CMakeFiles/test_netio.dir/test/test_netio.cpp.o: CXX_COMPILER__test_netio_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_netio.cpp || cmake_object_order_depends_target_test_netio
   DEP_FILE = CMakeFiles/test_netio.dir/test/test_netio.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_netio.dir
   OBJECT_FILE_DIR = CMakeFiles/test_netio.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_netio.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_netio.pdb
 
 
 # =============================================================================
@@ -66,16 +64,15 @@ build CMakeFiles/test_netio.dir/test/test_netio.cpp.o: CXX_COMPILER__test_netio_
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_netio
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_netio: CXX_EXECUTABLE_LINKER__test_netio_Debug CMakeFiles/test_netio.dir/test/test_netio.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_netio.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_netio.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_netio
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_netio.pdb
+  TARGET_PDB = test_netio.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_bloom_filter
@@ -88,11 +85,9 @@ build cmake_object_order_depends_target_test_bloom_filter: phony || CMakeFiles/t
 
 build CMakeFiles/test_bloom_filter.dir/test/test_bloom_filter.cpp.o: CXX_COMPILER__test_bloom_filter_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_bloom_filter.cpp || cmake_object_order_depends_target_test_bloom_filter
   DEP_FILE = CMakeFiles/test_bloom_filter.dir/test/test_bloom_filter.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_bloom_filter.dir
   OBJECT_FILE_DIR = CMakeFiles/test_bloom_filter.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_bloom_filter.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter.pdb
 
 
 # =============================================================================
@@ -103,16 +98,15 @@ build CMakeFiles/test_bloom_filter.dir/test/test_bloom_filter.cpp.o: CXX_COMPILE
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter: CXX_EXECUTABLE_LINKER__test_bloom_filter_Debug CMakeFiles/test_bloom_filter.dir/test/test_bloom_filter.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_bloom_filter.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_bloom_filter.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter.pdb
+  TARGET_PDB = test_bloom_filter.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_cuckoo_filter
@@ -125,11 +119,9 @@ build cmake_object_order_depends_target_test_cuckoo_filter: phony || CMakeFiles/
 
 build CMakeFiles/test_cuckoo_filter.dir/test/test_cuckoo_filter.cpp.o: CXX_COMPILER__test_cuckoo_filter_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_cuckoo_filter.cpp || cmake_object_order_depends_target_test_cuckoo_filter
   DEP_FILE = CMakeFiles/test_cuckoo_filter.dir/test/test_cuckoo_filter.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_cuckoo_filter.dir
   OBJECT_FILE_DIR = CMakeFiles/test_cuckoo_filter.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_cuckoo_filter.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter.pdb
 
 
 # =============================================================================
@@ -140,16 +132,15 @@ build CMakeFiles/test_cuckoo_filter.dir/test/test_cuckoo_filter.cpp.o: CXX_COMPI
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter: CXX_EXECUTABLE_LINKER__test_cuckoo_filter_Debug CMakeFiles/test_cuckoo_filter.dir/test/test_cuckoo_filter.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_cuckoo_filter.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_cuckoo_filter.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter.pdb
+  TARGET_PDB = test_cuckoo_filter.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_naor_pinkas_ot
@@ -162,11 +153,9 @@ build cmake_object_order_depends_target_test_naor_pinkas_ot: phony || CMakeFiles
 
 build CMakeFiles/test_naor_pinkas_ot.dir/test/test_naor_pinkas_ot.cpp.o: CXX_COMPILER__test_naor_pinkas_ot_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_naor_pinkas_ot.cpp || cmake_object_order_depends_target_test_naor_pinkas_ot
   DEP_FILE = CMakeFiles/test_naor_pinkas_ot.dir/test/test_naor_pinkas_ot.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_naor_pinkas_ot.dir
   OBJECT_FILE_DIR = CMakeFiles/test_naor_pinkas_ot.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_naor_pinkas_ot.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot.pdb
 
 
 # =============================================================================
@@ -177,16 +166,15 @@ build CMakeFiles/test_naor_pinkas_ot.dir/test/test_naor_pinkas_ot.cpp.o: CXX_COM
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot: CXX_EXECUTABLE_LINKER__test_naor_pinkas_ot_Debug CMakeFiles/test_naor_pinkas_ot.dir/test/test_naor_pinkas_ot.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_naor_pinkas_ot.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_naor_pinkas_ot.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot.pdb
+  TARGET_PDB = test_naor_pinkas_ot.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_iknp_ote
@@ -199,11 +187,9 @@ build cmake_object_order_depends_target_test_iknp_ote: phony || CMakeFiles/test_
 
 build CMakeFiles/test_iknp_ote.dir/test/test_iknp_ote.cpp.o: CXX_COMPILER__test_iknp_ote_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_iknp_ote.cpp || cmake_object_order_depends_target_test_iknp_ote
   DEP_FILE = CMakeFiles/test_iknp_ote.dir/test/test_iknp_ote.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_iknp_ote.dir
   OBJECT_FILE_DIR = CMakeFiles/test_iknp_ote.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_iknp_ote.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote.pdb
 
 
 # =============================================================================
@@ -214,16 +200,15 @@ build CMakeFiles/test_iknp_ote.dir/test/test_iknp_ote.cpp.o: CXX_COMPILER__test_
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote: CXX_EXECUTABLE_LINKER__test_iknp_ote_Debug CMakeFiles/test_iknp_ote.dir/test/test_iknp_ote.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_iknp_ote.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_iknp_ote.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote.pdb
+  TARGET_PDB = test_iknp_ote.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_alsz_ote
@@ -236,11 +221,9 @@ build cmake_object_order_depends_target_test_alsz_ote: phony || CMakeFiles/test_
 
 build CMakeFiles/test_alsz_ote.dir/test/test_alsz_ote.cpp.o: CXX_COMPILER__test_alsz_ote_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_alsz_ote.cpp || cmake_object_order_depends_target_test_alsz_ote
   DEP_FILE = CMakeFiles/test_alsz_ote.dir/test/test_alsz_ote.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_alsz_ote.dir
   OBJECT_FILE_DIR = CMakeFiles/test_alsz_ote.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_alsz_ote.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote.pdb
 
 
 # =============================================================================
@@ -251,16 +234,15 @@ build CMakeFiles/test_alsz_ote.dir/test/test_alsz_ote.cpp.o: CXX_COMPILER__test_
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote: CXX_EXECUTABLE_LINKER__test_alsz_ote_Debug CMakeFiles/test_alsz_ote.dir/test/test_alsz_ote.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_alsz_ote.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_alsz_ote.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote.pdb
+  TARGET_PDB = test_alsz_ote.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_aes
@@ -273,11 +255,9 @@ build cmake_object_order_depends_target_test_aes: phony || CMakeFiles/test_aes.d
 
 build CMakeFiles/test_aes.dir/test/test_aes.cpp.o: CXX_COMPILER__test_aes_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_aes.cpp || cmake_object_order_depends_target_test_aes
   DEP_FILE = CMakeFiles/test_aes.dir/test/test_aes.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_aes.dir
   OBJECT_FILE_DIR = CMakeFiles/test_aes.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_aes.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_aes.pdb
 
 
 # =============================================================================
@@ -288,16 +268,15 @@ build CMakeFiles/test_aes.dir/test/test_aes.cpp.o: CXX_COMPILER__test_aes_Debug 
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_aes
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_aes: CXX_EXECUTABLE_LINKER__test_aes_Debug CMakeFiles/test_aes.dir/test/test_aes.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_aes.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_aes.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_aes
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_aes.pdb
+  TARGET_PDB = test_aes.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_cwprf_psi
@@ -310,11 +289,9 @@ build cmake_object_order_depends_target_test_cwprf_psi: phony || CMakeFiles/test
 
 build CMakeFiles/test_cwprf_psi.dir/test/test_cwprf_psi.cpp.o: CXX_COMPILER__test_cwprf_psi_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_cwprf_psi.cpp || cmake_object_order_depends_target_test_cwprf_psi
   DEP_FILE = CMakeFiles/test_cwprf_psi.dir/test/test_cwprf_psi.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_cwprf_psi.dir
   OBJECT_FILE_DIR = CMakeFiles/test_cwprf_psi.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_cwprf_psi.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi.pdb
 
 
 # =============================================================================
@@ -325,16 +302,15 @@ build CMakeFiles/test_cwprf_psi.dir/test/test_cwprf_psi.cpp.o: CXX_COMPILER__tes
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi: CXX_EXECUTABLE_LINKER__test_cwprf_psi_Debug CMakeFiles/test_cwprf_psi.dir/test/test_cwprf_psi.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_cwprf_psi.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_cwprf_psi.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi.pdb
+  TARGET_PDB = test_cwprf_psi.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt
@@ -347,11 +323,9 @@ build cmake_object_order_depends_target_test_mqrpmt: phony || CMakeFiles/test_mq
 
 build CMakeFiles/test_mqrpmt.dir/test/test_mqrpmt.cpp.o: CXX_COMPILER__test_mqrpmt_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt.cpp || cmake_object_order_depends_target_test_mqrpmt
   DEP_FILE = CMakeFiles/test_mqrpmt.dir/test/test_mqrpmt.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt.pdb
 
 
 # =============================================================================
@@ -362,16 +336,15 @@ build CMakeFiles/test_mqrpmt.dir/test/test_mqrpmt.cpp.o: CXX_COMPILER__test_mqrp
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt: CXX_EXECUTABLE_LINKER__test_mqrpmt_Debug CMakeFiles/test_mqrpmt.dir/test/test_mqrpmt.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt.pdb
+  TARGET_PDB = test_mqrpmt.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt_psi
@@ -384,11 +357,9 @@ build cmake_object_order_depends_target_test_mqrpmt_psi: phony || CMakeFiles/tes
 
 build CMakeFiles/test_mqrpmt_psi.dir/test/test_mqrpmt_psi.cpp.o: CXX_COMPILER__test_mqrpmt_psi_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt_psi.cpp || cmake_object_order_depends_target_test_mqrpmt_psi
   DEP_FILE = CMakeFiles/test_mqrpmt_psi.dir/test/test_mqrpmt_psi.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt_psi.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi.pdb
 
 
 # =============================================================================
@@ -399,16 +370,15 @@ build CMakeFiles/test_mqrpmt_psi.dir/test/test_mqrpmt_psi.cpp.o: CXX_COMPILER__t
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi: CXX_EXECUTABLE_LINKER__test_mqrpmt_psi_Debug CMakeFiles/test_mqrpmt_psi.dir/test/test_mqrpmt_psi.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi.pdb
+  TARGET_PDB = test_mqrpmt_psi.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt_psi_card
@@ -421,11 +391,9 @@ build cmake_object_order_depends_target_test_mqrpmt_psi_card: phony || CMakeFile
 
 build CMakeFiles/test_mqrpmt_psi_card.dir/test/test_mqrpmt_psi_card.cpp.o: CXX_COMPILER__test_mqrpmt_psi_card_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt_psi_card.cpp || cmake_object_order_depends_target_test_mqrpmt_psi_card
   DEP_FILE = CMakeFiles/test_mqrpmt_psi_card.dir/test/test_mqrpmt_psi_card.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi_card.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt_psi_card.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi_card.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card.pdb
 
 
 # =============================================================================
@@ -436,16 +404,15 @@ build CMakeFiles/test_mqrpmt_psi_card.dir/test/test_mqrpmt_psi_card.cpp.o: CXX_C
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card: CXX_EXECUTABLE_LINKER__test_mqrpmt_psi_card_Debug CMakeFiles/test_mqrpmt_psi_card.dir/test/test_mqrpmt_psi_card.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi_card.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi_card.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card.pdb
+  TARGET_PDB = test_mqrpmt_psi_card.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt_psi_card_sum
@@ -458,11 +425,9 @@ build cmake_object_order_depends_target_test_mqrpmt_psi_card_sum: phony || CMake
 
 build CMakeFiles/test_mqrpmt_psi_card_sum.dir/test/test_mqrpmt_psi_card_sum.cpp.o: CXX_COMPILER__test_mqrpmt_psi_card_sum_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt_psi_card_sum.cpp || cmake_object_order_depends_target_test_mqrpmt_psi_card_sum
   DEP_FILE = CMakeFiles/test_mqrpmt_psi_card_sum.dir/test/test_mqrpmt_psi_card_sum.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi_card_sum.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt_psi_card_sum.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi_card_sum.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum.pdb
 
 
 # =============================================================================
@@ -473,16 +438,15 @@ build CMakeFiles/test_mqrpmt_psi_card_sum.dir/test/test_mqrpmt_psi_card_sum.cpp.
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum: CXX_EXECUTABLE_LINKER__test_mqrpmt_psi_card_sum_Debug CMakeFiles/test_mqrpmt_psi_card_sum.dir/test/test_mqrpmt_psi_card_sum.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psi_card_sum.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psi_card_sum.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum.pdb
+  TARGET_PDB = test_mqrpmt_psi_card_sum.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt_psu
@@ -495,11 +459,9 @@ build cmake_object_order_depends_target_test_mqrpmt_psu: phony || CMakeFiles/tes
 
 build CMakeFiles/test_mqrpmt_psu.dir/test/test_mqrpmt_psu.cpp.o: CXX_COMPILER__test_mqrpmt_psu_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt_psu.cpp || cmake_object_order_depends_target_test_mqrpmt_psu
   DEP_FILE = CMakeFiles/test_mqrpmt_psu.dir/test/test_mqrpmt_psu.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psu.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt_psu.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psu.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu.pdb
 
 
 # =============================================================================
@@ -510,16 +472,15 @@ build CMakeFiles/test_mqrpmt_psu.dir/test/test_mqrpmt_psu.cpp.o: CXX_COMPILER__t
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu: CXX_EXECUTABLE_LINKER__test_mqrpmt_psu_Debug CMakeFiles/test_mqrpmt_psu.dir/test/test_mqrpmt_psu.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt_psu.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_psu.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu.pdb
+  TARGET_PDB = test_mqrpmt_psu.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_mqrpmt_private_id
@@ -532,11 +493,9 @@ build cmake_object_order_depends_target_test_mqrpmt_private_id: phony || CMakeFi
 
 build CMakeFiles/test_mqrpmt_private_id.dir/test/test_mqrpmt_private_id.cpp.o: CXX_COMPILER__test_mqrpmt_private_id_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_mqrpmt_private_id.cpp || cmake_object_order_depends_target_test_mqrpmt_private_id
   DEP_FILE = CMakeFiles/test_mqrpmt_private_id.dir/test/test_mqrpmt_private_id.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_mqrpmt_private_id.dir
   OBJECT_FILE_DIR = CMakeFiles/test_mqrpmt_private_id.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_private_id.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id.pdb
 
 
 # =============================================================================
@@ -547,16 +506,15 @@ build CMakeFiles/test_mqrpmt_private_id.dir/test/test_mqrpmt_private_id.cpp.o: C
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id: CXX_EXECUTABLE_LINKER__test_mqrpmt_private_id_Debug CMakeFiles/test_mqrpmt_private_id.dir/test/test_mqrpmt_private_id.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_mqrpmt_private_id.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_mqrpmt_private_id.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id.pdb
+  TARGET_PDB = test_mqrpmt_private_id.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target mytest
@@ -569,11 +527,9 @@ build cmake_object_order_depends_target_mytest: phony || CMakeFiles/mytest.dir
 
 build CMakeFiles/mytest.dir/test/test_pso.cpp.o: CXX_COMPILER__mytest_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_pso.cpp || cmake_object_order_depends_target_mytest
   DEP_FILE = CMakeFiles/mytest.dir/test/test_pso.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/mytest.dir
   OBJECT_FILE_DIR = CMakeFiles/mytest.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/mytest.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/mytest.pdb
 
 
 # =============================================================================
@@ -584,16 +540,15 @@ build CMakeFiles/mytest.dir/test/test_pso.cpp.o: CXX_COMPILER__mytest_Debug /hom
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/mytest
 
 build /home/ubuntu/CLionProjects/Kunlun/build/mytest: CXX_EXECUTABLE_LINKER__mytest_Debug CMakeFiles/mytest.dir/test/test_pso.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/mytest.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/mytest.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/mytest
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/mytest.pdb
+  TARGET_PDB = mytest.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target mypsu
@@ -606,11 +561,9 @@ build cmake_object_order_depends_target_mypsu: phony || CMakeFiles/mypsu.dir
 
 build CMakeFiles/mypsu.dir/test/mypsuTest.cpp.o: CXX_COMPILER__mypsu_Debug /home/ubuntu/CLionProjects/Kunlun/test/mypsuTest.cpp || cmake_object_order_depends_target_mypsu
   DEP_FILE = CMakeFiles/mypsu.dir/test/mypsuTest.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/mypsu.dir
   OBJECT_FILE_DIR = CMakeFiles/mypsu.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/mypsu.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/mypsu.pdb
 
 
 # =============================================================================
@@ -621,16 +574,55 @@ build CMakeFiles/mypsu.dir/test/mypsuTest.cpp.o: CXX_COMPILER__mypsu_Debug /home
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/mypsu
 
 build /home/ubuntu/CLionProjects/Kunlun/build/mypsu: CXX_EXECUTABLE_LINKER__mypsu_Debug CMakeFiles/mypsu.dir/test/mypsuTest.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/mypsu.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/mypsu.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/mypsu
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/mypsu.pdb
+  TARGET_PDB = mypsu.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target myfile
+
+
+#############################################
+# Order-only phony target for myfile
+
+build cmake_object_order_depends_target_myfile: phony || CMakeFiles/myfile.dir
+
+build CMakeFiles/myfile.dir/test/mytest/fileTest.cpp.o: CXX_COMPILER__myfile_Debug /home/ubuntu/CLionProjects/Kunlun/test/mytest/fileTest.cpp || cmake_object_order_depends_target_myfile
+  DEP_FILE = CMakeFiles/myfile.dir/test/mytest/fileTest.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  OBJECT_DIR = CMakeFiles/myfile.dir
+  OBJECT_FILE_DIR = CMakeFiles/myfile.dir/test/mytest
+
+build CMakeFiles/myfile.dir/test/mytest/PirTest.cpp.o: CXX_COMPILER__myfile_Debug /home/ubuntu/CLionProjects/Kunlun/test/mytest/PirTest.cpp || cmake_object_order_depends_target_myfile
+  DEP_FILE = CMakeFiles/myfile.dir/test/mytest/PirTest.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  OBJECT_DIR = CMakeFiles/myfile.dir
+  OBJECT_FILE_DIR = CMakeFiles/myfile.dir/test/mytest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target myfile
+
+
+#############################################
+# Link the executable /home/ubuntu/CLionProjects/Kunlun/build/myfile
+
+build /home/ubuntu/CLionProjects/Kunlun/build/myfile: CXX_EXECUTABLE_LINKER__myfile_Debug CMakeFiles/myfile.dir/test/mytest/fileTest.cpp.o CMakeFiles/myfile.dir/test/mytest/PirTest.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
+  LINK_PATH = -L/usr/local/lib
+  OBJECT_DIR = CMakeFiles/myfile.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/myfile
+  TARGET_PDB = myfile.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_oteoprf
@@ -643,11 +635,9 @@ build cmake_object_order_depends_target_test_oteoprf: phony || CMakeFiles/test_o
 
 build CMakeFiles/test_oteoprf.dir/test/test_oteoprf.cpp.o: CXX_COMPILER__test_oteoprf_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_oteoprf.cpp || cmake_object_order_depends_target_test_oteoprf
   DEP_FILE = CMakeFiles/test_oteoprf.dir/test/test_oteoprf.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_oteoprf.dir
   OBJECT_FILE_DIR = CMakeFiles/test_oteoprf.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_oteoprf.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf.pdb
 
 
 # =============================================================================
@@ -658,16 +648,15 @@ build CMakeFiles/test_oteoprf.dir/test/test_oteoprf.cpp.o: CXX_COMPILER__test_ot
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf: CXX_EXECUTABLE_LINKER__test_oteoprf_Debug CMakeFiles/test_oteoprf.dir/test/test_oteoprf.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_oteoprf.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_oteoprf.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf.pdb
+  TARGET_PDB = test_oteoprf.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_peqt
@@ -680,11 +669,9 @@ build cmake_object_order_depends_target_test_peqt: phony || CMakeFiles/test_peqt
 
 build CMakeFiles/test_peqt.dir/test/test_peqt.cpp.o: CXX_COMPILER__test_peqt_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_peqt.cpp || cmake_object_order_depends_target_test_peqt
   DEP_FILE = CMakeFiles/test_peqt.dir/test/test_peqt.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_peqt.dir
   OBJECT_FILE_DIR = CMakeFiles/test_peqt.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_peqt.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_peqt.pdb
 
 
 # =============================================================================
@@ -695,16 +682,15 @@ build CMakeFiles/test_peqt.dir/test/test_peqt.cpp.o: CXX_COMPILER__test_peqt_Deb
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_peqt
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_peqt: CXX_EXECUTABLE_LINKER__test_peqt_Debug CMakeFiles/test_peqt.dir/test/test_peqt.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_peqt.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_peqt.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_peqt
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_peqt.pdb
+  TARGET_PDB = test_peqt.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_misc
@@ -717,11 +703,9 @@ build cmake_object_order_depends_target_test_misc: phony || CMakeFiles/test_misc
 
 build CMakeFiles/test_misc.dir/test/test_misc.cpp.o: CXX_COMPILER__test_misc_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_misc.cpp || cmake_object_order_depends_target_test_misc
   DEP_FILE = CMakeFiles/test_misc.dir/test/test_misc.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_misc.dir
   OBJECT_FILE_DIR = CMakeFiles/test_misc.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_misc.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_misc.pdb
 
 
 # =============================================================================
@@ -732,16 +716,15 @@ build CMakeFiles/test_misc.dir/test/test_misc.cpp.o: CXX_COMPILER__test_misc_Deb
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_misc
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_misc: CXX_EXECUTABLE_LINKER__test_misc_Debug CMakeFiles/test_misc.dir/test/test_misc.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_misc.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_misc.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_misc
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_misc.pdb
+  TARGET_PDB = test_misc.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_twisted_elgamal
@@ -754,11 +737,9 @@ build cmake_object_order_depends_target_test_twisted_elgamal: phony || CMakeFile
 
 build CMakeFiles/test_twisted_elgamal.dir/test/test_twisted_elgamal.cpp.o: CXX_COMPILER__test_twisted_elgamal_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_twisted_elgamal.cpp || cmake_object_order_depends_target_test_twisted_elgamal
   DEP_FILE = CMakeFiles/test_twisted_elgamal.dir/test/test_twisted_elgamal.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_twisted_elgamal.dir
   OBJECT_FILE_DIR = CMakeFiles/test_twisted_elgamal.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_twisted_elgamal.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal.pdb
 
 
 # =============================================================================
@@ -769,16 +750,15 @@ build CMakeFiles/test_twisted_elgamal.dir/test/test_twisted_elgamal.cpp.o: CXX_C
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal: CXX_EXECUTABLE_LINKER__test_twisted_elgamal_Debug CMakeFiles/test_twisted_elgamal.dir/test/test_twisted_elgamal.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_twisted_elgamal.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_twisted_elgamal.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal.pdb
+  TARGET_PDB = test_twisted_elgamal.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_elgamal
@@ -791,11 +771,9 @@ build cmake_object_order_depends_target_test_elgamal: phony || CMakeFiles/test_e
 
 build CMakeFiles/test_elgamal.dir/test/test_elgamal.cpp.o: CXX_COMPILER__test_elgamal_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_elgamal.cpp || cmake_object_order_depends_target_test_elgamal
   DEP_FILE = CMakeFiles/test_elgamal.dir/test/test_elgamal.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_elgamal.dir
   OBJECT_FILE_DIR = CMakeFiles/test_elgamal.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_elgamal.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal.pdb
 
 
 # =============================================================================
@@ -806,16 +784,15 @@ build CMakeFiles/test_elgamal.dir/test/test_elgamal.cpp.o: CXX_COMPILER__test_el
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal: CXX_EXECUTABLE_LINKER__test_elgamal_Debug CMakeFiles/test_elgamal.dir/test/test_elgamal.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_elgamal.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_elgamal.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal.pdb
+  TARGET_PDB = test_elgamal.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_calculate_dlog
@@ -828,11 +805,9 @@ build cmake_object_order_depends_target_test_calculate_dlog: phony || CMakeFiles
 
 build CMakeFiles/test_calculate_dlog.dir/test/test_calculate_dlog.cpp.o: CXX_COMPILER__test_calculate_dlog_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_calculate_dlog.cpp || cmake_object_order_depends_target_test_calculate_dlog
   DEP_FILE = CMakeFiles/test_calculate_dlog.dir/test/test_calculate_dlog.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_calculate_dlog.dir
   OBJECT_FILE_DIR = CMakeFiles/test_calculate_dlog.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_calculate_dlog.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog.pdb
 
 
 # =============================================================================
@@ -843,16 +818,15 @@ build CMakeFiles/test_calculate_dlog.dir/test/test_calculate_dlog.cpp.o: CXX_COM
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog: CXX_EXECUTABLE_LINKER__test_calculate_dlog_Debug CMakeFiles/test_calculate_dlog.dir/test/test_calculate_dlog.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_calculate_dlog.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_calculate_dlog.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog.pdb
+  TARGET_PDB = test_calculate_dlog.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_accountable_ring_sig
@@ -865,11 +839,9 @@ build cmake_object_order_depends_target_test_accountable_ring_sig: phony || CMak
 
 build CMakeFiles/test_accountable_ring_sig.dir/test/test_accountable_ring_sig.cpp.o: CXX_COMPILER__test_accountable_ring_sig_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_accountable_ring_sig.cpp || cmake_object_order_depends_target_test_accountable_ring_sig
   DEP_FILE = CMakeFiles/test_accountable_ring_sig.dir/test/test_accountable_ring_sig.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_accountable_ring_sig.dir
   OBJECT_FILE_DIR = CMakeFiles/test_accountable_ring_sig.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_accountable_ring_sig.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig.pdb
 
 
 # =============================================================================
@@ -880,16 +852,15 @@ build CMakeFiles/test_accountable_ring_sig.dir/test/test_accountable_ring_sig.cp
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig: CXX_EXECUTABLE_LINKER__test_accountable_ring_sig_Debug CMakeFiles/test_accountable_ring_sig.dir/test/test_accountable_ring_sig.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_accountable_ring_sig.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_accountable_ring_sig.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig.pdb
+  TARGET_PDB = test_accountable_ring_sig.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_schnorr_sig
@@ -902,11 +873,9 @@ build cmake_object_order_depends_target_test_schnorr_sig: phony || CMakeFiles/te
 
 build CMakeFiles/test_schnorr_sig.dir/test/test_schnorr_sig.cpp.o: CXX_COMPILER__test_schnorr_sig_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_schnorr_sig.cpp || cmake_object_order_depends_target_test_schnorr_sig
   DEP_FILE = CMakeFiles/test_schnorr_sig.dir/test/test_schnorr_sig.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_schnorr_sig.dir
   OBJECT_FILE_DIR = CMakeFiles/test_schnorr_sig.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_schnorr_sig.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig.pdb
 
 
 # =============================================================================
@@ -917,16 +886,15 @@ build CMakeFiles/test_schnorr_sig.dir/test/test_schnorr_sig.cpp.o: CXX_COMPILER_
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig: CXX_EXECUTABLE_LINKER__test_schnorr_sig_Debug CMakeFiles/test_schnorr_sig.dir/test/test_schnorr_sig.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_schnorr_sig.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_schnorr_sig.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig.pdb
+  TARGET_PDB = test_schnorr_sig.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_nizk_enc_relation
@@ -939,11 +907,9 @@ build cmake_object_order_depends_target_test_nizk_enc_relation: phony || CMakeFi
 
 build CMakeFiles/test_nizk_enc_relation.dir/test/test_nizk_enc_relation.cpp.o: CXX_COMPILER__test_nizk_enc_relation_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_nizk_enc_relation.cpp || cmake_object_order_depends_target_test_nizk_enc_relation
   DEP_FILE = CMakeFiles/test_nizk_enc_relation.dir/test/test_nizk_enc_relation.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_nizk_enc_relation.dir
   OBJECT_FILE_DIR = CMakeFiles/test_nizk_enc_relation.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_enc_relation.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation.pdb
 
 
 # =============================================================================
@@ -954,16 +920,15 @@ build CMakeFiles/test_nizk_enc_relation.dir/test/test_nizk_enc_relation.cpp.o: C
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation: CXX_EXECUTABLE_LINKER__test_nizk_enc_relation_Debug CMakeFiles/test_nizk_enc_relation.dir/test/test_nizk_enc_relation.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_nizk_enc_relation.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_enc_relation.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation.pdb
+  TARGET_PDB = test_nizk_enc_relation.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_nizk_dlog_knowledge
@@ -976,11 +941,9 @@ build cmake_object_order_depends_target_test_nizk_dlog_knowledge: phony || CMake
 
 build CMakeFiles/test_nizk_dlog_knowledge.dir/test/test_nizk_dlog_knowledge.cpp.o: CXX_COMPILER__test_nizk_dlog_knowledge_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_nizk_dlog_knowledge.cpp || cmake_object_order_depends_target_test_nizk_dlog_knowledge
   DEP_FILE = CMakeFiles/test_nizk_dlog_knowledge.dir/test/test_nizk_dlog_knowledge.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_nizk_dlog_knowledge.dir
   OBJECT_FILE_DIR = CMakeFiles/test_nizk_dlog_knowledge.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_dlog_knowledge.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge.pdb
 
 
 # =============================================================================
@@ -991,16 +954,15 @@ build CMakeFiles/test_nizk_dlog_knowledge.dir/test/test_nizk_dlog_knowledge.cpp.
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge: CXX_EXECUTABLE_LINKER__test_nizk_dlog_knowledge_Debug CMakeFiles/test_nizk_dlog_knowledge.dir/test/test_nizk_dlog_knowledge.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_nizk_dlog_knowledge.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_dlog_knowledge.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge.pdb
+  TARGET_PDB = test_nizk_dlog_knowledge.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_nizk_plaintext_equality
@@ -1013,11 +975,9 @@ build cmake_object_order_depends_target_test_nizk_plaintext_equality: phony || C
 
 build CMakeFiles/test_nizk_plaintext_equality.dir/test/test_nizk_plaintext_equality.cpp.o: CXX_COMPILER__test_nizk_plaintext_equality_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_nizk_plaintext_equality.cpp || cmake_object_order_depends_target_test_nizk_plaintext_equality
   DEP_FILE = CMakeFiles/test_nizk_plaintext_equality.dir/test/test_nizk_plaintext_equality.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_nizk_plaintext_equality.dir
   OBJECT_FILE_DIR = CMakeFiles/test_nizk_plaintext_equality.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_plaintext_equality.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality.pdb
 
 
 # =============================================================================
@@ -1028,16 +988,15 @@ build CMakeFiles/test_nizk_plaintext_equality.dir/test/test_nizk_plaintext_equal
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality: CXX_EXECUTABLE_LINKER__test_nizk_plaintext_equality_Debug CMakeFiles/test_nizk_plaintext_equality.dir/test/test_nizk_plaintext_equality.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_nizk_plaintext_equality.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_plaintext_equality.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality.pdb
+  TARGET_PDB = test_nizk_plaintext_equality.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_nizk_plaintext_knowledge
@@ -1050,11 +1009,9 @@ build cmake_object_order_depends_target_test_nizk_plaintext_knowledge: phony || 
 
 build CMakeFiles/test_nizk_plaintext_knowledge.dir/test/test_nizk_plaintext_knowledge.cpp.o: CXX_COMPILER__test_nizk_plaintext_knowledge_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_nizk_plaintext_knowledge.cpp || cmake_object_order_depends_target_test_nizk_plaintext_knowledge
   DEP_FILE = CMakeFiles/test_nizk_plaintext_knowledge.dir/test/test_nizk_plaintext_knowledge.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_nizk_plaintext_knowledge.dir
   OBJECT_FILE_DIR = CMakeFiles/test_nizk_plaintext_knowledge.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_plaintext_knowledge.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge.pdb
 
 
 # =============================================================================
@@ -1065,16 +1022,15 @@ build CMakeFiles/test_nizk_plaintext_knowledge.dir/test/test_nizk_plaintext_know
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge: CXX_EXECUTABLE_LINKER__test_nizk_plaintext_knowledge_Debug CMakeFiles/test_nizk_plaintext_knowledge.dir/test/test_nizk_plaintext_knowledge.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_nizk_plaintext_knowledge.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_plaintext_knowledge.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge.pdb
+  TARGET_PDB = test_nizk_plaintext_knowledge.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_nizk_dlog_equality
@@ -1087,11 +1043,9 @@ build cmake_object_order_depends_target_test_nizk_dlog_equality: phony || CMakeF
 
 build CMakeFiles/test_nizk_dlog_equality.dir/test/test_nizk_dlog_equality.cpp.o: CXX_COMPILER__test_nizk_dlog_equality_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_nizk_dlog_equality.cpp || cmake_object_order_depends_target_test_nizk_dlog_equality
   DEP_FILE = CMakeFiles/test_nizk_dlog_equality.dir/test/test_nizk_dlog_equality.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_nizk_dlog_equality.dir
   OBJECT_FILE_DIR = CMakeFiles/test_nizk_dlog_equality.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_dlog_equality.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality.pdb
 
 
 # =============================================================================
@@ -1102,16 +1056,15 @@ build CMakeFiles/test_nizk_dlog_equality.dir/test/test_nizk_dlog_equality.cpp.o:
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality: CXX_EXECUTABLE_LINKER__test_nizk_dlog_equality_Debug CMakeFiles/test_nizk_dlog_equality.dir/test/test_nizk_dlog_equality.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_nizk_dlog_equality.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_nizk_dlog_equality.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality.pdb
+  TARGET_PDB = test_nizk_dlog_equality.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_innerproduct_proof
@@ -1124,11 +1077,9 @@ build cmake_object_order_depends_target_test_innerproduct_proof: phony || CMakeF
 
 build CMakeFiles/test_innerproduct_proof.dir/test/test_innerproduct_proof.cpp.o: CXX_COMPILER__test_innerproduct_proof_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_innerproduct_proof.cpp || cmake_object_order_depends_target_test_innerproduct_proof
   DEP_FILE = CMakeFiles/test_innerproduct_proof.dir/test/test_innerproduct_proof.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_innerproduct_proof.dir
   OBJECT_FILE_DIR = CMakeFiles/test_innerproduct_proof.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_innerproduct_proof.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof.pdb
 
 
 # =============================================================================
@@ -1139,16 +1090,15 @@ build CMakeFiles/test_innerproduct_proof.dir/test/test_innerproduct_proof.cpp.o:
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof: CXX_EXECUTABLE_LINKER__test_innerproduct_proof_Debug CMakeFiles/test_innerproduct_proof.dir/test/test_innerproduct_proof.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_innerproduct_proof.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_innerproduct_proof.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof.pdb
+  TARGET_PDB = test_innerproduct_proof.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_bullet_proof
@@ -1161,11 +1111,9 @@ build cmake_object_order_depends_target_test_bullet_proof: phony || CMakeFiles/t
 
 build CMakeFiles/test_bullet_proof.dir/test/test_bullet_proof.cpp.o: CXX_COMPILER__test_bullet_proof_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_bullet_proof.cpp || cmake_object_order_depends_target_test_bullet_proof
   DEP_FILE = CMakeFiles/test_bullet_proof.dir/test/test_bullet_proof.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_bullet_proof.dir
   OBJECT_FILE_DIR = CMakeFiles/test_bullet_proof.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_bullet_proof.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof.pdb
 
 
 # =============================================================================
@@ -1176,16 +1124,15 @@ build CMakeFiles/test_bullet_proof.dir/test/test_bullet_proof.cpp.o: CXX_COMPILE
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof: CXX_EXECUTABLE_LINKER__test_bullet_proof_Debug CMakeFiles/test_bullet_proof.dir/test/test_bullet_proof.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_bullet_proof.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_bullet_proof.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof.pdb
+  TARGET_PDB = test_bullet_proof.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_range_proof
@@ -1198,11 +1145,9 @@ build cmake_object_order_depends_target_test_range_proof: phony || CMakeFiles/te
 
 build CMakeFiles/test_range_proof.dir/test/test_range_proof.cpp.o: CXX_COMPILER__test_range_proof_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_range_proof.cpp || cmake_object_order_depends_target_test_range_proof
   DEP_FILE = CMakeFiles/test_range_proof.dir/test/test_range_proof.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_range_proof.dir
   OBJECT_FILE_DIR = CMakeFiles/test_range_proof.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_range_proof.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof.pdb
 
 
 # =============================================================================
@@ -1213,16 +1158,15 @@ build CMakeFiles/test_range_proof.dir/test/test_range_proof.cpp.o: CXX_COMPILER_
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof: CXX_EXECUTABLE_LINKER__test_range_proof_Debug CMakeFiles/test_range_proof.dir/test/test_range_proof.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_range_proof.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_range_proof.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof.pdb
+  TARGET_PDB = test_range_proof.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_adcp
@@ -1235,11 +1179,9 @@ build cmake_object_order_depends_target_test_adcp: phony || CMakeFiles/test_adcp
 
 build CMakeFiles/test_adcp.dir/test/test_adcp.cpp.o: CXX_COMPILER__test_adcp_Debug /home/ubuntu/CLionProjects/Kunlun/test/test_adcp.cpp || cmake_object_order_depends_target_test_adcp
   DEP_FILE = CMakeFiles/test_adcp.dir/test/test_adcp.cpp.o.d
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
   OBJECT_DIR = CMakeFiles/test_adcp.dir
   OBJECT_FILE_DIR = CMakeFiles/test_adcp.dir/test
-  TARGET_COMPILE_PDB = CMakeFiles/test_adcp.dir/
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_adcp.pdb
 
 
 # =============================================================================
@@ -1250,16 +1192,164 @@ build CMakeFiles/test_adcp.dir/test/test_adcp.cpp.o: CXX_COMPILER__test_adcp_Deb
 # Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_adcp
 
 build /home/ubuntu/CLionProjects/Kunlun/build/test_adcp: CXX_EXECUTABLE_LINKER__test_adcp_Debug CMakeFiles/test_adcp.dir/test/test_adcp.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
-  FLAGS = -std=c++14 -fpic -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
   LINK_PATH = -L/usr/local/lib
   OBJECT_DIR = CMakeFiles/test_adcp.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/test_adcp.dir/
   TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_adcp
-  TARGET_PDB = /home/ubuntu/CLionProjects/Kunlun/build/test_adcp.pdb
+  TARGET_PDB = test_adcp.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target sealpir
+
+
+#############################################
+# Order-only phony target for sealpir
+
+build cmake_object_order_depends_target_sealpir: phony || CMakeFiles/sealpir.dir
+
+build CMakeFiles/sealpir.dir/mpc/pir/pir.cpp.o: CXX_COMPILER__sealpir_Debug /home/ubuntu/CLionProjects/Kunlun/mpc/pir/pir.cpp || cmake_object_order_depends_target_sealpir
+  DEP_FILE = CMakeFiles/sealpir.dir/mpc/pir/pir.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -pthread -std=gnu++17
+  INCLUDES = -isystem /usr/local/include/SEAL-4.0
+  OBJECT_DIR = CMakeFiles/sealpir.dir
+  OBJECT_FILE_DIR = CMakeFiles/sealpir.dir/mpc/pir
+
+build CMakeFiles/sealpir.dir/mpc/pir/pir_client.cpp.o: CXX_COMPILER__sealpir_Debug /home/ubuntu/CLionProjects/Kunlun/mpc/pir/pir_client.cpp || cmake_object_order_depends_target_sealpir
+  DEP_FILE = CMakeFiles/sealpir.dir/mpc/pir/pir_client.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -pthread -std=gnu++17
+  INCLUDES = -isystem /usr/local/include/SEAL-4.0
+  OBJECT_DIR = CMakeFiles/sealpir.dir
+  OBJECT_FILE_DIR = CMakeFiles/sealpir.dir/mpc/pir
+
+build CMakeFiles/sealpir.dir/mpc/pir/pir_server.cpp.o: CXX_COMPILER__sealpir_Debug /home/ubuntu/CLionProjects/Kunlun/mpc/pir/pir_server.cpp || cmake_object_order_depends_target_sealpir
+  DEP_FILE = CMakeFiles/sealpir.dir/mpc/pir/pir_server.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -pthread -std=gnu++17
+  INCLUDES = -isystem /usr/local/include/SEAL-4.0
+  OBJECT_DIR = CMakeFiles/sealpir.dir
+  OBJECT_FILE_DIR = CMakeFiles/sealpir.dir/mpc/pir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target sealpir
+
+
+#############################################
+# Link the static library libsealpir.a
+
+build libsealpir.a: CXX_STATIC_LIBRARY_LINKER__sealpir_Debug CMakeFiles/sealpir.dir/mpc/pir/pir.cpp.o CMakeFiles/sealpir.dir/mpc/pir/pir_client.cpp.o CMakeFiles/sealpir.dir/mpc/pir/pir_server.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  OBJECT_DIR = CMakeFiles/sealpir.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libsealpir.a
+  TARGET_PDB = sealpir.a.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_pirfile
+
+
+#############################################
+# Order-only phony target for test_pirfile
+
+build cmake_object_order_depends_target_test_pirfile: phony || cmake_object_order_depends_target_sealpir
+
+build CMakeFiles/test_pirfile.dir/test/mytest/sealpirTest.cpp.o: CXX_COMPILER__test_pirfile_Debug /home/ubuntu/CLionProjects/Kunlun/test/mytest/sealpirTest.cpp || cmake_object_order_depends_target_test_pirfile
+  DEP_FILE = CMakeFiles/test_pirfile.dir/test/mytest/sealpirTest.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -pthread -fopenmp -std=gnu++17
+  INCLUDES = -isystem /usr/local/include/SEAL-4.0
+  OBJECT_DIR = CMakeFiles/test_pirfile.dir
+  OBJECT_FILE_DIR = CMakeFiles/test_pirfile.dir/test/mytest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_pirfile
+
+
+#############################################
+# Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_pirfile
+
+build /home/ubuntu/CLionProjects/Kunlun/build/test_pirfile: CXX_EXECUTABLE_LINKER__test_pirfile_Debug CMakeFiles/test_pirfile.dir/test/mytest/sealpirTest.cpp.o | libsealpir.a /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/local/lib/libseal-4.0.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so || libsealpir.a
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  libsealpir.a  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  /usr/local/lib/libseal-4.0.a  -pthread  -lgomp  -lpthread
+  LINK_PATH = -L/usr/local/lib
+  OBJECT_DIR = CMakeFiles/test_pirfile.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_pirfile
+  TARGET_PDB = test_pirfile.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_cope
+
+
+#############################################
+# Order-only phony target for test_cope
+
+build cmake_object_order_depends_target_test_cope: phony || CMakeFiles/test_cope.dir
+
+build CMakeFiles/test_cope.dir/test/mytest/test_cope.cpp.o: CXX_COMPILER__test_cope_Debug /home/ubuntu/CLionProjects/Kunlun/test/mytest/test_cope.cpp || cmake_object_order_depends_target_test_cope
+  DEP_FILE = CMakeFiles/test_cope.dir/test/mytest/test_cope.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  OBJECT_DIR = CMakeFiles/test_cope.dir
+  OBJECT_FILE_DIR = CMakeFiles/test_cope.dir/test/mytest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_cope
+
+
+#############################################
+# Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_cope
+
+build /home/ubuntu/CLionProjects/Kunlun/build/test_cope: CXX_EXECUTABLE_LINKER__test_cope_Debug CMakeFiles/test_cope.dir/test/mytest/test_cope.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
+  LINK_PATH = -L/usr/local/lib
+  OBJECT_DIR = CMakeFiles/test_cope.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_cope
+  TARGET_PDB = test_cope.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_iknp
+
+
+#############################################
+# Order-only phony target for test_iknp
+
+build cmake_object_order_depends_target_test_iknp: phony || CMakeFiles/test_iknp.dir
+
+build CMakeFiles/test_iknp.dir/test/mytest/test_iknp.cpp.o: CXX_COMPILER__test_iknp_Debug /home/ubuntu/CLionProjects/Kunlun/test/mytest/test_iknp.cpp || cmake_object_order_depends_target_test_iknp
+  DEP_FILE = CMakeFiles/test_iknp.dir/test/mytest/test_iknp.cpp.o.d
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g -fdiagnostics-color=always -fopenmp
+  OBJECT_DIR = CMakeFiles/test_iknp.dir
+  OBJECT_FILE_DIR = CMakeFiles/test_iknp.dir/test/mytest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_iknp
+
+
+#############################################
+# Link the executable /home/ubuntu/CLionProjects/Kunlun/build/test_iknp
+
+build /home/ubuntu/CLionProjects/Kunlun/build/test_iknp: CXX_EXECUTABLE_LINKER__test_iknp_Debug CMakeFiles/test_iknp.dir/test/mytest/test_iknp.cpp.o | /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so
+  FLAGS = -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3 -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib64/libcrypto.a  /usr/local/lib64/libssl.a  -ldl  -lgomp  -lpthread
+  LINK_PATH = -L/usr/local/lib
+  OBJECT_DIR = CMakeFiles/test_iknp.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/ubuntu/CLionProjects/Kunlun/build/test_iknp
+  TARGET_PDB = test_iknp.dbg
 
 
 #############################################
@@ -1287,9 +1377,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build myfile: phony /home/ubuntu/CLionProjects/Kunlun/build/myfile
+
 build mypsu: phony /home/ubuntu/CLionProjects/Kunlun/build/mypsu
 
 build mytest: phony /home/ubuntu/CLionProjects/Kunlun/build/mytest
+
+build sealpir: phony libsealpir.a
 
 build test_accountable_ring_sig: phony /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig
 
@@ -1305,11 +1399,15 @@ build test_bullet_proof: phony /home/ubuntu/CLionProjects/Kunlun/build/test_bull
 
 build test_calculate_dlog: phony /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog
 
+build test_cope: phony /home/ubuntu/CLionProjects/Kunlun/build/test_cope
+
 build test_cuckoo_filter: phony /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter
 
 build test_cwprf_psi: phony /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi
 
 build test_elgamal: phony /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal
+
+build test_iknp: phony /home/ubuntu/CLionProjects/Kunlun/build/test_iknp
 
 build test_iknp_ote: phony /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote
 
@@ -1347,6 +1445,8 @@ build test_oteoprf: phony /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf
 
 build test_peqt: phony /home/ubuntu/CLionProjects/Kunlun/build/test_peqt
 
+build test_pirfile: phony /home/ubuntu/CLionProjects/Kunlun/build/test_pirfile
+
 build test_range_proof: phony /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof
 
 build test_schnorr_sig: phony /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig
@@ -1361,7 +1461,7 @@ build test_twisted_elgamal: phony /home/ubuntu/CLionProjects/Kunlun/build/test_t
 #############################################
 # Folder: /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug
 
-build all: phony /home/ubuntu/CLionProjects/Kunlun/build/test_netio /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote /home/ubuntu/CLionProjects/Kunlun/build/test_aes /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id /home/ubuntu/CLionProjects/Kunlun/build/mytest /home/ubuntu/CLionProjects/Kunlun/build/mypsu /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf /home/ubuntu/CLionProjects/Kunlun/build/test_peqt /home/ubuntu/CLionProjects/Kunlun/build/test_misc /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof /home/ubuntu/CLionProjects/Kunlun/build/test_adcp
+build all: phony /home/ubuntu/CLionProjects/Kunlun/build/test_netio /home/ubuntu/CLionProjects/Kunlun/build/test_bloom_filter /home/ubuntu/CLionProjects/Kunlun/build/test_cuckoo_filter /home/ubuntu/CLionProjects/Kunlun/build/test_naor_pinkas_ot /home/ubuntu/CLionProjects/Kunlun/build/test_iknp_ote /home/ubuntu/CLionProjects/Kunlun/build/test_alsz_ote /home/ubuntu/CLionProjects/Kunlun/build/test_aes /home/ubuntu/CLionProjects/Kunlun/build/test_cwprf_psi /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psi_card_sum /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_psu /home/ubuntu/CLionProjects/Kunlun/build/test_mqrpmt_private_id /home/ubuntu/CLionProjects/Kunlun/build/mytest /home/ubuntu/CLionProjects/Kunlun/build/mypsu /home/ubuntu/CLionProjects/Kunlun/build/myfile /home/ubuntu/CLionProjects/Kunlun/build/test_oteoprf /home/ubuntu/CLionProjects/Kunlun/build/test_peqt /home/ubuntu/CLionProjects/Kunlun/build/test_misc /home/ubuntu/CLionProjects/Kunlun/build/test_twisted_elgamal /home/ubuntu/CLionProjects/Kunlun/build/test_elgamal /home/ubuntu/CLionProjects/Kunlun/build/test_calculate_dlog /home/ubuntu/CLionProjects/Kunlun/build/test_accountable_ring_sig /home/ubuntu/CLionProjects/Kunlun/build/test_schnorr_sig /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_enc_relation /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_knowledge /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_equality /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_plaintext_knowledge /home/ubuntu/CLionProjects/Kunlun/build/test_nizk_dlog_equality /home/ubuntu/CLionProjects/Kunlun/build/test_innerproduct_proof /home/ubuntu/CLionProjects/Kunlun/build/test_bullet_proof /home/ubuntu/CLionProjects/Kunlun/build/test_range_proof /home/ubuntu/CLionProjects/Kunlun/build/test_adcp libsealpir.a /home/ubuntu/CLionProjects/Kunlun/build/test_pirfile /home/ubuntu/CLionProjects/Kunlun/build/test_cope /home/ubuntu/CLionProjects/Kunlun/build/test_iknp
 
 # =============================================================================
 # Unknown Build Time Dependencies.
@@ -1375,14 +1475,14 @@ build all: phony /home/ubuntu/CLionProjects/Kunlun/build/test_netio /home/ubuntu
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/ubuntu/CLionProjects/Kunlun/CMakeLists.txt /home/ubuntu/CLionProjects/Kunlun/config/config.h.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePrintHelpers.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystem.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindOpenMP.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/ubuntu/CLionProjects/Kunlun/CMakeLists.txt /home/ubuntu/CLionProjects/Kunlun/config/config.h.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindDependencyMacro.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePrintHelpers.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckIncludeFile.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindOpenMP.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindThreads.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/SEAL-4.0/SEALConfig.cmake /usr/local/lib/cmake/SEAL-4.0/SEALConfigVersion.cmake /usr/local/lib/cmake/SEAL-4.0/SEALTargets-release.cmake /usr/local/lib/cmake/SEAL-4.0/SEALTargets.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/ubuntu/CLionProjects/Kunlun/CMakeLists.txt /home/ubuntu/CLionProjects/Kunlun/config/config.h.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePrintHelpers.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystem.cmake.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindOpenMP.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
+build /home/ubuntu/CLionProjects/Kunlun/CMakeLists.txt /home/ubuntu/CLionProjects/Kunlun/config/config.h.in /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeFindDependencyMacro.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakePrintHelpers.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckIncludeFile.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindOpenMP.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindThreads.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /snap/clion/234/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/SEAL-4.0/SEALConfig.cmake /usr/local/lib/cmake/SEAL-4.0/SEALConfigVersion.cmake /usr/local/lib/cmake/SEAL-4.0/SEALTargets-release.cmake /usr/local/lib/cmake/SEAL-4.0/SEALTargets.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
 
 
 #############################################

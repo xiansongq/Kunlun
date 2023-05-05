@@ -14,6 +14,7 @@
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_mqrpmt_private_id.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/mytest.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/mypsu.dir
+/home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/myfile.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_oteoprf.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_peqt.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_misc.dir
@@ -31,5 +32,9 @@
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_bullet_proof.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_range_proof.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_adcp.dir
+/home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/sealpir.dir
+/home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_pirfile.dir
+/home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_cope.dir
+/home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/test_iknp.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/ubuntu/CLionProjects/Kunlun/cmake-build-debug/CMakeFiles/rebuild_cache.dir

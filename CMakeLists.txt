@@ -3,11 +3,11 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 
 # Project's name 
 PROJECT(Kunlun)
-
+# On some machines, the path of OpenSSL is  /usr/local/lib64/openssl/libcrypto.a
 IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    SET(OPENSSL_LIBRARIES /usr/local/openssl/lib64/libcrypto.a /usr/local/openssl/lib64/libssl.a)
-    SET(OPENSSL_INCLUDE_DIR /usr/local/openssl/include)
-    SET(OPENSSL_DIR /usr/local/openssl/lib64)
+    SET(OPENSSL_LIBRARIES /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a)
+    SET(OPENSSL_INCLUDE_DIR /usr/local/include)
+    SET(OPENSSL_DIR /usr/local/lib64)
 ELSEIF(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     SET(OPENSSL_LIBRARIES /usr/local/lib/libcrypto.a /usr/local/lib/libssl.a)
     SET(OPENSSL_INCLUDE_DIR /usr/local/include)
@@ -18,7 +18,7 @@ FIND_PACKAGE(OpenMP REQUIRED)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3")
 
-SET(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -ldl")
+#SET(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -ldl")
 
 INCLUDE_DIRECTORIES(
     ${OPENSSL_INCLUDE_DIR}
@@ -118,7 +118,7 @@ ADD_EXECUTABLE(mypsu test/mypsuTest.cpp)
 TARGET_LINK_LIBRARIES(mypsu ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
 #myfiletest
-ADD_EXECUTABLE(myfile test/mytest/fileTest.cpp)
+ADD_EXECUTABLE(myfile test/mytest/fileTest.cpp test/mytest/PirTest.cpp)
 TARGET_LINK_LIBRARIES(myfile ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
 # oprf
@@ -186,19 +186,34 @@ TARGET_LINK_LIBRARIES(test_adcp ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_
 # target_link_libraries(test_mcl libmcl.a libgmp.a)
 
 
-find_package(SEAL 4.0 REQUIRED)
 
+#[[!!!有时会遇到 seal/seal.h 找不到的错误]]
+find_package(SEAL 4.0  REQUIRED)
+
+if(NOT SEAL_FOUND)
+    message(FATAL_ERROR "Microsoft SEAL: not found")
+else()
+    message(STATUS "Microsoft SEAL: ${SEAL_DIR}")
+endif()
+# 找不到头文件的临时解决方法
+#find_path(SEAL_INCLUDE_DIRS seal/seal.h PATH_SUFFIXES SEAL-4.0)
+#include_directories(${SEAL_INCLUDE_DIRS})
 
 add_library(sealpir mpc/pir/pir.hpp mpc/pir/pir.cpp mpc/pir/pir_client.hpp mpc/pir/pir_client.cpp mpc/pir/pir_server.hpp
-        mpc/pir/pir_server.cpp)
+        mpc/pir/pir_server.cpp  )
+# mpc/pir/sealpir_keyword.hpp mpc/pir/seal_pir.hpp
 
-#add_library(sealpir mpc/pir/seal_pir.hpp)
 target_link_libraries(sealpir SEAL::seal)
-add_executable(pirtest test/mytest/sealpirTest.cpp)
-target_link_libraries(pirtest sealpir ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#add_executable(pirtest test/mytest/PirTest.cpp )
+#target_link_libraries(pirtest sealpir ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
 add_executable(test_pirfile test/mytest/sealpirTest.cpp)
 target_link_libraries(test_pirfile sealpir ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
+add_executable(test_cope test/mytest/test_cope.cpp)
+target_link_libraries(test_cope  ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
+add_executable(test_oprf_psi test/mytest/test_psi_from_oprf.cpp)
+target_link_libraries(test_oprf_psi ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 

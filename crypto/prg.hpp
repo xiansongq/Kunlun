@@ -11,67 +11,66 @@
 #ifdef ENABLE_RDSEED
 #include <x86intrin.h>
 #else
+
 #include <random>
+
 #endif
 
 // used as PRG seed
 const char fixed_seed[] = "\x61\x7e\x8d\xa2\xa0\x51\x1e\x96\x5e\x41\xc2\x9b\x15\x3f\xc7\x7a";
 
-namespace PRG{
+namespace PRG {
 
-struct Seed{ 
-    size_t counter = 0; 
-    AES::Key aes_key;
-};
+    struct Seed {
+        size_t counter = 0;
+        AES::Key aes_key;
+    };
 
-void PrintSeed(const Seed& seed)
-{
-    std::cout << "PRG seed >>>" << std::endl;
-    std::cout << "counter = " << seed.counter << std::endl;
-    AES::PrintKey(seed.aes_key); 
-}
+    void PrintSeed(const Seed &seed) {
+        std::cout << "PRG seed >>>" << std::endl;
+        std::cout << "counter = " << seed.counter << std::endl;
+        AES::PrintKey(seed.aes_key);
+    }
 
 // serialize pp to stream
-std::ofstream &operator<<(std::ofstream &fout, const Seed &seed)
-{
-    fout << seed.counter;
-    fout << seed.aes_key; 
-    return fout;
-}
+    std::ofstream &operator<<(std::ofstream &fout, const Seed &seed) {
+        fout << seed.counter;
+        fout << seed.aes_key;
+        return fout;
+    }
 
 
 // deserialize pp from stream
-std::ifstream &operator>>(std::ifstream &fin, Seed &seed)
-{
-    fin >> seed.counter;
-    fin >> seed.aes_key; 
-    return fin; 
-}
+    std::ifstream &operator>>(std::ifstream &fin, Seed &seed) {
+        fin >> seed.counter;
+        fin >> seed.aes_key;
+        return fin;
+    }
 
-void ReSeed(Seed &seed, const block* salt, uint64_t id = 0) 
-{
-    block key = _mm_loadu_si128(salt);
-    key ^= Block::MakeBlock(0LL, id);
-    seed.aes_key = AES::GenEncKey(key);
-    seed.counter = 0;
-}
+    void ReSeed(Seed &seed, const block *salt, uint64_t id = 0) {
+        block key = _mm_loadu_si128(salt);
+        key ^= Block::MakeBlock(0LL, id);
+        seed.aes_key = AES::GenEncKey(key);
+        seed.counter = 0;
+    }
+
 // id is the identidier of PRG in use
-Seed SetSeed(const void* salt = nullptr, uint64_t id = 0) {
-    Seed seed; 
-    // if there is a given salt
-    if (salt != nullptr) {
-        ReSeed(seed, (const block *)salt, id);
-    } 
-    // if there is no given salt
-    else {
-        block v;
-        #ifndef ENABLE_RDSEED
-            uint32_t* data = (uint32_t*)(&v);
+    Seed SetSeed(const void *salt = nullptr, uint64_t id = 0) {
+        Seed seed;
+        // if there is a given salt
+        if (salt != nullptr) {
+            ReSeed(seed, (const block *) salt, id);
+        }
+            // if there is no given salt
+        else {
+            block v;
+#ifndef ENABLE_RDSEED
+            uint32_t *data = (uint32_t *) (&v);
             std::random_device rand_div("/dev/urandom");
-            for (auto i = 0; i < sizeof(block) / sizeof(uint32_t); i++){
+            for (auto i = 0; i < sizeof(block) / sizeof(uint32_t); i++) {
                 data[i] = rand_div();
             }
-        #else
+#else
             unsigned long long r0, r1;
             size_t i = 0;
             for(; i < 10; i++)
@@ -83,63 +82,72 @@ Seed SetSeed(const void* salt = nullptr, uint64_t id = 0) {
             if(i == 10) error("RDSEED FAILURE");
 
             v = Block::MakeBlock(r0, r1);
-        #endif
-        ReSeed(seed, &v, id);
+#endif
+            ReSeed(seed, &v, id);
+        }
+        seed.counter = 0;
+        return seed;
     }
-    seed.counter = 0; 
-    return seed; 
-}
 
-std::vector<block> GenRandomBlocks(Seed &seed, size_t LEN)
-{
-    std::vector<block> vec_b(LEN); 
-    block temp_block[AES::BATCH_SIZE];
-    for(auto i = 0; i < LEN/AES::BATCH_SIZE; i++){
-        for (auto j = 0; j < AES::BATCH_SIZE; j++)
+    std::vector<block> GenRandomBlocks(Seed &seed, size_t LEN) {
+        std::vector<block> vec_b(LEN);
+        block temp_block[AES::BATCH_SIZE];
+        for (auto i = 0; i < LEN / AES::BATCH_SIZE; i++) {
+            for (auto j = 0; j < AES::BATCH_SIZE; j++)
+                temp_block[j] = Block::MakeBlock(0LL, seed.counter++);
+            AES::FastECBEnc(seed.aes_key, temp_block, AES::BATCH_SIZE);
+            memcpy(vec_b.data() + i * AES::BATCH_SIZE, temp_block, AES::BATCH_SIZE * sizeof(block));
+        }
+        size_t REMAIN_LEN = LEN % AES::BATCH_SIZE;
+        for (auto j = 0; j < REMAIN_LEN; j++)
             temp_block[j] = Block::MakeBlock(0LL, seed.counter++);
-        AES::FastECBEnc(seed.aes_key, temp_block, AES::BATCH_SIZE);
-        memcpy(vec_b.data() + i*AES::BATCH_SIZE, temp_block, AES::BATCH_SIZE*sizeof(block));
+        AES::FastECBEnc(seed.aes_key, temp_block, REMAIN_LEN);
+        memcpy(vec_b.data() + (LEN / AES::BATCH_SIZE) * AES::BATCH_SIZE, temp_block, REMAIN_LEN * sizeof(block));
+
+        return vec_b;
     }
-    size_t REMAIN_LEN = LEN % AES::BATCH_SIZE;
-    for (auto j = 0; j < REMAIN_LEN; j++)
-        temp_block[j] = Block::MakeBlock(0LL, seed.counter++);
-    AES::FastECBEnc(seed.aes_key, temp_block, REMAIN_LEN);
-    memcpy(vec_b.data()+(LEN/AES::BATCH_SIZE)*AES::BATCH_SIZE, temp_block, REMAIN_LEN*sizeof(block));
-
-    return vec_b; 
-}
 
 
 // generate a random byte vector
-std::vector<uint8_t> GenRandomBytes(Seed &seed, size_t LEN){
-    std::vector<uint8_t> vec_b(LEN);
-    size_t BLOCK_LEN = size_t(ceil(double(LEN)/16)); 
-    std::vector<block> vec_a(BLOCK_LEN); 
-    vec_a = GenRandomBlocks(seed, BLOCK_LEN);
+    std::vector<uint8_t> GenRandomBytes(Seed &seed, size_t LEN) {
+        std::vector<uint8_t> vec_b(LEN);
+        size_t BLOCK_LEN = size_t(ceil(double(LEN) / 16));
+        std::vector<block> vec_a(BLOCK_LEN);
+        vec_a = GenRandomBlocks(seed, BLOCK_LEN);
 
-    memcpy(vec_b.data(), vec_a.data(), LEN); 
+        memcpy(vec_b.data(), vec_a.data(), LEN);
 
-    return vec_b; 
-}
+        return vec_b;
+    }
 
 // generate a random byte vector
-void GenRandomBytes(Seed &seed, uint8_t *output, size_t LEN){
-    size_t BLOCK_LEN = size_t(ceil(double(LEN)/16)); 
-    std::vector<block> vec_a(BLOCK_LEN); 
-    vec_a = GenRandomBlocks(seed, BLOCK_LEN);
-    memcpy(output, vec_a.data(), LEN); 
-}
+    void GenRandomBytes(Seed &seed, uint8_t *output, size_t LEN) {
+        size_t BLOCK_LEN = size_t(ceil(double(LEN) / 16));
+        std::vector<block> vec_a(BLOCK_LEN);
+        vec_a = GenRandomBlocks(seed, BLOCK_LEN);
+        memcpy(output, vec_a.data(), LEN);
+    }
+
+// generate a random byte vector
+    void GenRandomBytes_64(Seed &seed, uint64_t *output, size_t LEN) {
+        GenRandomBlocks(seed, LEN);
+        if (LEN % 16 != 0) {
+           std::vector<block> extra;
+            extra = GenRandomBlocks(seed, 1);
+            memcpy((LEN / 16 * 16) + (char *) output, &extra, LEN % 16);
+        }
+
+    }
 
 // generate a random bool vector: each byte represent a bit in a sparse way
-std::vector<uint8_t> GenRandomBits(Seed &seed, size_t LEN) 
-{
-    std::vector<uint8_t> vec_b; // interpret each byte as a bit
-    vec_b = GenRandomBytes(seed, LEN);
-    for(auto i = 0; i < LEN; i++){
-        vec_b[i] = vec_b[i] & 1;
+    std::vector<uint8_t> GenRandomBits(Seed &seed, size_t LEN) {
+        std::vector<uint8_t> vec_b; // interpret each byte as a bit
+        vec_b = GenRandomBytes(seed, LEN);
+        for (auto i = 0; i < LEN; i++) {
+            vec_b[i] = vec_b[i] & 1;
+        }
+        return vec_b;
     }
-    return vec_b; 
-}
 
 // generate a random bit matrix (store in column vector order) in byte form
 // std::vector<uint8_t> GenRandomBitMatrix(Seed &seed, size_t ROW_NUM, size_t COLUMN_NUM)
@@ -149,7 +157,7 @@ std::vector<uint8_t> GenRandomBits(Seed &seed, size_t LEN)
 //     std::vector<uint8_t> T(ROW_NUM/8 * COLUMN_NUM); 
 
 //     std::vector<uint8_t> random_column(ROW_NUM/8); 
-    
+
 //     // generate the i-th row
 //     for(auto i = 0; i < COLUMN_NUM; i++){
 //         random_column = GenRandomBytes(seed, ROW_NUM/8);
@@ -159,33 +167,31 @@ std::vector<uint8_t> GenRandomBits(Seed &seed, size_t LEN)
 // }
 
 // generate a random bit matrix (store in column vector order) in block form
-std::vector<block> GenRandomBitMatrix(Seed &seed, size_t ROW_NUM, size_t COLUMN_NUM)
-{
-    assert(ROW_NUM % 128 == 0 && COLUMN_NUM % 8 == 0);
-    std::vector<block> T = GenRandomBlocks(seed, ROW_NUM/128 * COLUMN_NUM);
-    return T;
-} 
+    std::vector<block> GenRandomBitMatrix(Seed &seed, size_t ROW_NUM, size_t COLUMN_NUM) {
+        assert(ROW_NUM % 128 == 0 && COLUMN_NUM % 8 == 0);
+        std::vector<block> T = GenRandomBlocks(seed, ROW_NUM / 128 * COLUMN_NUM);
+        return T;
+    }
 
 
 }
 
-bool CompareBits(std::vector<uint8_t>& vec_A,  std::vector<uint8_t>& vec_B)
-{
-    bool flag = true; 
-    if(vec_A.size()!=vec_B.size()){
+bool CompareBits(std::vector<uint8_t> &vec_A, std::vector<uint8_t> &vec_B) {
+    bool flag = true;
+    if (vec_A.size() != vec_B.size()) {
         std::cerr << "sizes of bits vector do not match" << std::endl;
-        return false; 
+        return false;
     }
-    for(auto i = 0; i < vec_A.size(); i++){
-        if(vec_A[i] != vec_B[i]){
+    for (auto i = 0; i < vec_A.size(); i++) {
+        if (vec_A[i] != vec_B[i]) {
             std::cerr << i << "th position does not match" << std::endl;
-            std::cout << static_cast<int>(vec_A[i]) << std::endl; 
-            std::cout << static_cast<int>(vec_B[i]) << std::endl; 
+            std::cout << static_cast<int>(vec_A[i]) << std::endl;
+            std::cout << static_cast<int>(vec_B[i]) << std::endl;
 
             flag = false;
         }
     }
-    return flag; 
+    return flag;
 }
 
 

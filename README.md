@@ -66,16 +66,20 @@ do the same modification as in MACOS, then compile it according to
   $ sudo make install
 ```
 
-if reporting cannot find "opensslv.h" error, try to install libssl-dev
-```
-  $ sudo apt-get install libssl-dev 
-```
-
 * install OpenMP
 ```
-  $ sudo apt-get install libomp-dev 
+  $ sudo apt install libomp-dev 
 ```
 
+* install SEAL
+```angular2html
+  $ git clone -b v4.0.0 https://github.com/microsoft/SEAL.git
+  $ cd SEAL
+  $ mkdir build
+  $ cmake ..
+  $ make
+  $ sudo make install
+```
 ## Code Structure
 
 - README.md
@@ -147,6 +151,13 @@ if reporting cannot find "opensslv.h" error, try to install libssl-dev
     * mqrpmt_psi_card_sum.hpp: intersection sum and cardinality 
     * mqrpmt_psu.hpp: union
     * mqrpmt_private_id.hpp: private-id protocol based on OTE-based OPRF and cwPRF-based mqRPMT
+
+  - /pir
+    * pir.hpp pir.cpp SEALPIR sources code
+    * pir_client.hpp pir_client.cpp SEALPIR Client
+    * pir_server.hpp pir_server.cpp SEALPIR Server
+    * seal_pir.hpp SEALPIR by index
+    * sealpir_keyword.hpp SEALPIR by keyword(limitation)
 
 - zkp
   - /nizk: associated sigma protocol for twisted elgamal; obtained via Fiat-Shamir transform  
