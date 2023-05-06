@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsealpir.a  CMakeFiles/sealpir.dir/mpc/pir/pir.cpp.o CMakeFiles/sealpir.dir/mpc/pir/pir_client.cpp.o CMakeFiles/sealpir.dir/mpc/pir/pir_server.cpp.o
+/usr/bin/ranlib libsealpir.a

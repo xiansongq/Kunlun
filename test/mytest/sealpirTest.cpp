@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    uint64_t number_of_items = 999999;
+    uint64_t number_of_items = 1000000;
     uint64_t size_per_item = 28; // in bytes
     uint32_t N = 4096;
 
@@ -49,7 +49,7 @@ int main() {
         NetIO client("client", "127.0.0.1", 8090);
 
         std::vector<std::vector<uint8_t>> ans = SEALPIRKEYWORD::Clinet(client, pir_params, enc_params, "");
-        for (auto a: ans) {
+/*        for (auto a: ans) {
             std::cout << "id: ";
             for (int i = 0; i <= 17; i++) {
                 std::cout << (int) a[i];
@@ -59,12 +59,12 @@ int main() {
             std::cout << " age: ";
             for (int i = 26; i < 28; i++) std::cout << (int) a[i];
             std::cout << std::endl;
-        }
-        //输出查询结果
+        }*/
+        //输出查询结果到文件
         std::ofstream fout;
-        fout.open("pir_out.txt", std::ios::binary);
+        fout.open("sealpir_out.csv", std::ios::binary);
         if (!fout) {
-            std::cerr << "out.txt open error" << std::endl;
+            std::cerr << "sealpir_out.csv open error" << std::endl;
             exit(1);
         }
         if (fout.is_open()) {

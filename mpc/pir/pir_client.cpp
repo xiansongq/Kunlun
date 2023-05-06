@@ -85,6 +85,7 @@ PirQuery PIRClient::generate_query(uint64_t desiredIndex) {
     int N = enc_params_.poly_modulus_degree();
 
     Plaintext pt(enc_params_.poly_modulus_degree());
+
     for (uint32_t i = 0; i < indices_.size(); i++) {
         uint32_t num_ptxts = ceil((pir_params_.nvec[i] + 0.0) / N);
         // initialize result.
@@ -253,6 +254,7 @@ GaloisKeys PIRClient::generate_galois_keys() {
     int logN = get_power_of_two(N);
 
     // cout << "printing galois elements...";
+#pragma omp parallel for num_threads(thread_count)
     for (int i = 0; i < logN; i++) {
         galois_elts.push_back((N + exponentiate_uint(2, i)) /
                               exponentiate_uint(2, i));

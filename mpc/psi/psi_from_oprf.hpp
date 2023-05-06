@@ -41,10 +41,11 @@ namespace OPRFPSI {
             auto running_time1 = bloom_end_time - bloom_start_time;
             std::cout << "Receiver excute bloom filter query takes time= "
                       << std::chrono::duration<double, std::milli>(running_time1).count() << " ms" << std::endl;
-            delete[] buffer;
+
             PrintSplitLine('-');
             std::cout << "mpOPRF-based PSI: Receive <=== BloomFilter(F_k(x_i)) <=== Sender ["
-                      << (double) (filter_size) / (1 << 20) << " MB]" << std::endl;
+                      << (double) sizeof(buffer) / (1024*1024) << " MB]" << std::endl;
+            delete[] buffer;
             for (int i = 0; i < vec_indication_bit.size(); i++) {
                 if ((int) vec_indication_bit[i] == 1) ans.push_back(vec_Y[i]);
             }
@@ -66,7 +67,6 @@ namespace OPRFPSI {
                 io.ReceiveString(str);
                 if(i==1 ) std::cout<<str<<std::endl;
                 S.insert(str);
-                //std::cout<<rev_oprf_values[i]<<std::endl;
             }
 
 #pragma omp parallel for num_threads(thread_count)
@@ -110,9 +110,10 @@ namespace OPRFPSI {
             filter.WriteObject(buffer);
             io.SendBytes(buffer, filter_size);
             filter.ReadObject(buffer);
-            delete[] buffer;
+
             std::cout << "mpOPRF-based PSI: Sender ===> BloomFilter(F_k(x_i)) ===> Receiver ["
-                      << (double) (oprf_value.size() * pp.LEN) / (1 << 20) << " MB]" << std::endl;
+                      << (double) (sizeof(buffer)+sizeof(filter_size) )/ (1024*1024) << " MB]" << std::endl;
+            delete[] buffer;
             PrintSplitLine('-');
             auto end_time = std::chrono::steady_clock::now();
             auto running_time = end_time - start_time;

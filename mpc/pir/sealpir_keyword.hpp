@@ -118,7 +118,6 @@ namespace SEALPIRKEYWORD {
             std::string str = client_stream.str();
             /*Send query*/
             io.SendString(str);
-
             block b;
             io.ReceiveBlock(b);
             int reply_size = Block::BlockToInt64(b);
@@ -148,9 +147,7 @@ namespace SEALPIRKEYWORD {
 
     void Server(NetIO &io, PirParams params, const EncryptionParameters &enc_params, std::string filename) {
         /*, unique_ptr<uint8_t[]> &db1*/
-
         PIRServer server(enc_params, params);
-
         /*read file*/
         std::ifstream fin;
         std::vector<std::vector<std::string>> file_data;

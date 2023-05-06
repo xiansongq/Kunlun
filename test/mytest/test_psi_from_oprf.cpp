@@ -15,7 +15,6 @@ int main() {
     PrintSplitLine('-');
     OTEOPRF::PP pp;
     pp = OTEOPRF::Setup(20, 40);
-
     std::vector<block> vecx;
     //从文件读取数据
     std::ifstream fin;
@@ -25,7 +24,6 @@ int main() {
         return -1;
     }
     std::string line;
-//#pragma omp parallel num_threads(thread_count)
     while (std::getline(fin, line) ) {
         std::stringstream stream(line);
         uint64_t a;
@@ -42,7 +40,7 @@ int main() {
         return -1;
     }
     std::string line1;
-//#pragma omp parallel num_threads(thread_count)
+
     while (std::getline(fin1, line1)) {
         std::stringstream stream(line1);
         uint64_t a;
@@ -57,9 +55,7 @@ int main() {
      * 那么还差 48576条数据
      * */
     int len = 48576;
-//#pragma omp parallel for num_threads(thread_count)
     for (int i = 0; i < len; i++) vecx.push_back(Block::MakeBlock(0LL, 0LL));
-//#pragma omp parallel for num_threads(thread_count)
     for (int i = 0; i < len; i++) vecy.push_back(Block::MakeBlock(0LL, 0LL));
     std::cout << vecx.size() << "---" << vecy.size() << std::endl;
 
@@ -86,7 +82,6 @@ int main() {
     std::string party;
     std::cout
             << "please select your role between sender and receiver (hint: first start receiver, then start sender) ==> ";
-
 
     std::getline(std::cin, party);
     PrintSplitLine('-');

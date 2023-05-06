@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++14 -fpic -msse4.2 -Wno-deprecated-declarations -Wno-unused-result -Xpreprocessor -O3  -rdynamic CMakeFiles/test_nizk_plaintext_equality.dir/test/test_nizk_plaintext_equality.cpp.o  -o build/test_nizk_plaintext_equality   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a -ldl -lgomp -lpthread 

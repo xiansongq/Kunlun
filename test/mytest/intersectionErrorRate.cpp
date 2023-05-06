@@ -9,6 +9,7 @@
 #include <sstream>
 #include <algorithm>
 #include <unordered_set>
+#include "../../include/global.hpp"
 using namespace std;
 
 /*
