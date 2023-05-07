@@ -44,7 +44,7 @@ namespace OPRFPSI {
 
             PrintSplitLine('-');
             std::cout << "mpOPRF-based PSI: Receive <=== BloomFilter(F_k(x_i)) <=== Sender ["
-                      << (double) sizeof(buffer) / (1024*1024) << " MB]" << std::endl;
+                      << (double) (filter_size) / (1024*1024) << " MB]" << std::endl;
             delete[] buffer;
             for (int i = 0; i < vec_indication_bit.size(); i++) {
                 if ((int) vec_indication_bit[i] == 1) ans.push_back(vec_Y[i]);
@@ -112,7 +112,7 @@ namespace OPRFPSI {
             filter.ReadObject(buffer);
 
             std::cout << "mpOPRF-based PSI: Sender ===> BloomFilter(F_k(x_i)) ===> Receiver ["
-                      << (double) (sizeof(buffer)+sizeof(filter_size) )/ (1024*1024) << " MB]" << std::endl;
+                      << (double) (filter_size)/ (1024*1024) << " MB]" << std::endl;
             delete[] buffer;
             PrintSplitLine('-');
             auto end_time = std::chrono::steady_clock::now();

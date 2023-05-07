@@ -215,3 +215,16 @@ target_link_libraries(test_cope  ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE
 add_executable(test_oprf_psi test/mytest/test_psi_from_oprf.cpp)
 target_link_libraries(test_oprf_psi ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
+#ecdh_psi
+add_executable(test_ecdh_psi test/mytest/test_ecdh_psi.cpp)
+target_link_libraries(test_ecdh_psi ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#hash function
+add_executable(test_hash test/mytest/test_hash.cpp)
+target_link_libraries(test_hash ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#multi thread
+add_executable(test_thread test/mytest/test_multi_thread.cpp)
+target_link_libraries(test_thread ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+

@@ -14,6 +14,10 @@ SEALPIR can be executed for keyword-based queries through network communication 
 #include "seal/seal.h"
 #include "seal/util/polyarithsmallmod.h"
 #include "../../netio/stream_channel.hpp"
+#include "../../crypto/bigint.hpp"
+#include "../../crypto/hash.hpp"
+#include "../../include/global.hpp"
+
 #include "pir.hpp"
 #include "pir_client.hpp"
 #include "pir_server.hpp"
@@ -35,11 +39,10 @@ namespace SEALPIRKEYWORD {
         /*
          *    add keyword query
          *    use a vector to save mapping of indexs and keywords
-
          * */
         /*First clinet need to read file for KeyWord*/
         std::ifstream fin;
-        std::vector<block> index_data;
+        std::vector<std::string> keyword;
         fin.open("A_PIR_ID.txt", std::ios::binary);
         if (!fin) {
             std::cout << "Failed to open file" << std::endl;
@@ -47,43 +50,52 @@ namespace SEALPIRKEYWORD {
         }
         std::string line;
         int i = 0;
-        while (std::getline(fin, line)) {
-            index_data.push_back(Block::MakeBlock(0LL, std::stoull(line)));
+        while (std::getline(fin, line, '\n')) {
+            if (!line.empty() && line[line.size() - 1] == '\r')
+                line.erase(line.size() - 1);
+            keyword.push_back(line);
         }
         fin.close();
-        /*Second client receive file for Server for mapping of indexs and keywords */
+        /*Second client receive file for Server for mapping of indexs and hash(keywords) */
         block a;
         /*Recive file size */
         io.ReceiveBlock(a);
         int server_file_len = Block::BlockToInt64(a);
         /*Receive file*/
-        std::vector<block> index_num;
+        std::vector<block> index_num(server_file_len);
 
         std::cout << "Start receive file data" << std::endl;
+        //io.ReceiveBlocks(index_num.data(),server_file_len);
+
+#pragma omp parallel for num_threads(thread_count)
         for (int i = 0; i < server_file_len; i++) {
             io.ReceiveBlock(a);
-            index_num.push_back(a);
+            index_num[i] = a;
         }
         std::cout << "receive file finish" << std::endl;
-        //use map to save mapping indexs of keywords in order to achieve fast finding
+        //use map to save mapping indexs of hash(keywords) in order to achieve fast finding
         // construct map
         std::map<std::uint64_t, std::uint64_t> m;
         // data insert map
-        for (auto a: index_num) {
-            std::uint64_t index = Block::BlockToUint64High(a);
-            std::uint64_t keyword = Block::BlockToInt64(a);
+//#pragma omp parallel for num_threads(thread_count)
+        for (int i = 0; i < index_num.size(); i++) {
+            std::uint64_t index = Block::BlockToUint64High(index_num[i]);
+            std::uint64_t keyword = Block::BlockToInt64(index_num[i]);
             m[keyword] = index;
         }
-        // find index by keyword and save data to block
-        for (int i = 0; i < index_data.size(); i++) {
-            std::map<std::uint64_t, std::uint64_t>::iterator it = m.find(
-                    Block::BlockToInt64(index_data[i]));  // 在 std::map 容器中查找 key 对应的 value
-            if (it != m.end()) {
-                block temp = Block::MakeBlock(it->second, Block::BlockToInt64(index_data[i]));
-                index_data[i] = temp;
 
+        std::vector<std::uint64_t> keyword_index(keyword.size());
+//#pragma omp parallel for num_threads(thread_count)
+        for (int i = 0; i < keyword.size(); i++) {
+            auto a = Hash::StringToBlock(keyword[i]);
+            auto s = Block::BlockToInt64(a);
+            std::map<std::uint64_t, std::uint64_t>::iterator it = m.find(
+                    s);  // 在 std::map 容器中查找 key 对应的 value
+            if (it != m.end()) {
+                keyword_index[i] = (it->second);
             }
         }
+        std::cout << "keyword_inde size= " << keyword_index.size() << std::endl;
         auto start_time = std::chrono::steady_clock::now();
         /*The preprocessing of the files has been completed */
         cout << "Main: Generating galois keys for client" << endl;
@@ -103,15 +115,19 @@ namespace SEALPIRKEYWORD {
          * it means the query is finished and the network communication is disconnected*/
         std::string isend = "1";
         io.SendString(isend);
-        for (int i = 0; i < index_data.size(); i++) {
+        int query_toltal_size = 0;
 
+        for (int i = 0; i < keyword_index.size(); i++) {
             /*Generate query*/
-            uint64_t ele_index = Block::BlockToUint64High(index_data[i]);
+            //uint64_t ele_index = Block::BlockToUint64High(index_data[i]);
+            uint64_t ele_index = keyword_index[i];
             uint64_t index = client.get_fv_index(ele_index);   // index of FV plaintext
             uint64_t offset = client.get_fv_offset(ele_index); // offset in FV plaintext
+
             /*Serialization query sending by network*/
             stringstream client_stream;
             int query_size = client.generate_serialized_query(index, client_stream);
+            query_toltal_size += query_size;
             /*First send query size to server*/
             io.SendBlock(Block::MakeBlock(0LL, query_size));
             std::cout << "query_size" << query_size << std::endl;
@@ -130,7 +146,7 @@ namespace SEALPIRKEYWORD {
             PirReply reply = client.deserialize_reply(sreply, context);
             vector<uint8_t> elems = client.decode_reply(reply, offset);
             ans.push_back(elems);
-            if (i != index_data.size() - 1)
+            if (i != keyword_index.size() - 1)
                 isend = "1";
             else isend = "0";
             io.SendString(isend);
@@ -141,9 +157,10 @@ namespace SEALPIRKEYWORD {
         auto running_time = end_time - start_time;
         std::cout << "SealPIR:Client side takes time = "
                   << std::chrono::duration<double, std::milli>(running_time).count() << " ms" << std::endl;
-
+        std::cout << "SealPIR:Client Query size= ["
+                  << (double) (query_toltal_size) / (1024 * 1024) << " MB]" << std::endl;
         return ans;
-    }
+    } //client
 
     void Server(NetIO &io, PirParams params, const EncryptionParameters &enc_params, std::string filename) {
         /*, unique_ptr<uint8_t[]> &db1*/
@@ -174,19 +191,27 @@ namespace SEALPIRKEYWORD {
 
         }
         fin.close();
-        /*save index and keyword to block */
-        std::vector<block> index;
-        for (int i = 0; i < file_data.size(); i++) {
-            block a = Block::MakeBlock(std::stoull(file_data[i][0]), std::stoull(file_data[i][1]));
-            index.push_back(a);
+        /*
+         * mapping keyword-> hash(keyword)
+         * block=(index,hash(keyword)
+         * */
+        std::vector<block> hash_index(file_data.size());
+#pragma omp parallel for num_threads(thread_count)
+        for (auto i = 0; i < file_data.size(); i++) {
+            auto s = Hash::StringToBlock(file_data[i][1]);
+            block a = Block::MakeBlock(std::stoull(file_data[i][0]), Block::BlockToInt64(s));
+            hash_index[i] = a;
         }
+
         std::cout << "Send file size" << std::endl;
-        io.SendBlock(Block::MakeBlock(0LL, index.size()));
+        io.SendBlock(Block::MakeBlock(0LL, hash_index.size()));
         std::cout << "The file length has been sent successfully" << std::endl;
         std::cout << "start send file data" << std::endl;
-        for (auto a: index) {
-            io.SendBlock(a);
+#pragma omp parallel for num_threads(thread_count)
+        for (auto i = 0; i < hash_index.size(); i++) {
+            io.SendBlock(hash_index[i]);
         }
+
         std::cout << "file data send successfully" << std::endl;
         auto start_time = std::chrono::steady_clock::now();
         block c;
@@ -198,6 +223,7 @@ namespace SEALPIRKEYWORD {
         server.set_galois_key(0, *galois_keys1);
         /*Before generating the database file, it is necessary to remove the special
          * symbol '-' from the second column of the raw data*/
+//#pragma omp parallel for num_threads(thread_count)
         for (int i = 0; i < file_data.size(); i++) {
             std::string temp = file_data[i][2];
             temp.erase(std::remove(temp.begin(), temp.end(), '-'), temp.end());
@@ -220,26 +246,22 @@ namespace SEALPIRKEYWORD {
 
         std::string isend(1, '0');
         io.ReceiveString(isend);
+        int reply_toltal_size = 0;
         while (isend == "1") {
-
             block a;
             io.ReceiveBlock(a);
             int query_size = Block::BlockToInt64(a);
             std::cout << "rec_query_size " << query_size << std::endl;
-
             std::string query(query_size, '0');
             io.ReceiveString(query);
             std::stringstream server_stream;
             std::stringstream server_stream1(query);
             PirQuery query2 = server.deserialize_query(server_stream1);
-
             PirReply reply = server.generate_reply(query2, 0);
-
             int reply_size = server.serialize_reply(reply, server_stream);
-
+            reply_toltal_size += reply_size;
             io.SendBlock(Block::MakeBlock(0LL, reply_size));
             std::string str1 = server_stream.str();
-
             io.SendString(str1);
             io.ReceiveString(isend);
             //if (isend == "0") return;
@@ -248,11 +270,10 @@ namespace SEALPIRKEYWORD {
         auto running_time = end_time - start_time;
         std::cout << "SealPIR:Server side takes time = "
                   << std::chrono::duration<double, std::milli>(running_time).count() << " ms" << std::endl;
-
-    }
-
-
-}
+        std::cout << "SealPIR:Server Reply size= ["
+                  << (double) (reply_toltal_size) / (1024 * 1024) << " MB]" << std::endl;
+    }// server
+}// namespace
 
 
 #endif

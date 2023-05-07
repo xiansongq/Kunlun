@@ -102,6 +102,7 @@ void FetchPP(PP &pp, std::string pp_filename)
 #ifndef USE_CURVE_25519
 std::vector<uint8_t> Server(NetIO &io, PP &pp, std::vector<block> &vec_Y)
 {
+    std::cout<<"server use curve_25519"<<std::endl;
     if(pp.SERVER_LEN != vec_Y.size()){
         std::cerr << "input size of vec_Y does not match public parameters" << std::endl;
         exit(1);  
