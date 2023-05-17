@@ -227,4 +227,21 @@ target_link_libraries(test_hash ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_
 add_executable(test_thread test/mytest/test_multi_thread.cpp)
 target_link_libraries(test_thread ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
+#cuckoo hash
+add_library(hash mpc/cuckoohash/internal/blake2-impl.h mpc/cuckoohash/internal/blake2.h mpc/cuckoohash/internal/blake2b.cpp mpc/cuckoohash/internal/blake2xb.cpp)
+add_executable(test_cuckoo_hash test/mytest/test_cuckoohash.cpp)
+target_link_libraries(test_cuckoo_hash hash ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
+
+
+#peqt_label
+add_executable(test_label_peqt test/mytest/test_peqt_label.cpp)
+target_link_libraries(test_label_peqt ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#keywordpir
+add_executable(test_keyword_pir test/mytest/test_keywordpir.cpp)
+target_link_libraries(test_keyword_pir ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#test_poly
+add_executable(test_polynomial test/mytest/test_polynomial.cpp)
+target_link_libraries(test_polynomial ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})

@@ -33,4 +33,5 @@ this file includes commonly used head files
 #include <omp.h>
 #include <assert.h>
 #include <immintrin.h>
+#include <random>
 

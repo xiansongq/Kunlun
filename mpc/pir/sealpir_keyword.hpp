@@ -17,6 +17,7 @@ SEALPIR can be executed for keyword-based queries through network communication 
 #include "../../crypto/bigint.hpp"
 #include "../../crypto/hash.hpp"
 #include "../../include/global.hpp"
+#include "../rpmt/ecc_mqrpmt.hpp"
 
 #include "pir.hpp"
 #include "pir_client.hpp"
@@ -34,15 +35,11 @@ namespace SEALPIRKEYWORD {
     std::vector<std::vector<uint8_t>>
     Clinet(NetIO &io, PirParams params, const EncryptionParameters &enc_params, std::string filename) {
         // Initialize PIR client....
+        auto start_time = std::chrono::steady_clock::now();
         PIRClient client(enc_params, params);
 
-        /*
-         *    add keyword query
-         *    use a vector to save mapping of indexs and keywords
-         * */
-        /*First clinet need to read file for KeyWord*/
         std::ifstream fin;
-        std::vector<std::string> keyword;
+        std::vector<block> vec_x;
         fin.open("A_PIR_ID.txt", std::ios::binary);
         if (!fin) {
             std::cout << "Failed to open file" << std::endl;
@@ -53,50 +50,24 @@ namespace SEALPIRKEYWORD {
         while (std::getline(fin, line, '\n')) {
             if (!line.empty() && line[line.size() - 1] == '\r')
                 line.erase(line.size() - 1);
-            keyword.push_back(line);
+            vec_x.push_back(Block::MakeBlock('0LL',std::stoull(line)));
         }
         fin.close();
-        /*Second client receive file for Server for mapping of indexs and hash(keywords) */
-        block a;
-        /*Recive file size */
-        io.ReceiveBlock(a);
-        int server_file_len = Block::BlockToInt64(a);
-        /*Receive file*/
-        std::vector<block> index_num(server_file_len);
 
-        std::cout << "Start receive file data" << std::endl;
-        //io.ReceiveBlocks(index_num.data(),server_file_len);
+        // start ecc_mqrpmt
+        eccmqRPMT::PP pp;
+        pp=eccmqRPMT::Setup("bloom",40,1000000,10);
+        std::vector<uint8_t> result=eccmqRPMT::Client(io,pp,vec_x);
+        std::cout<<"eccmqRPMT result vector size="<<result.size()<<std::endl;
+        std::vector<std::uint64_t> keyword_index;
+        for(int i=0;i<result.size();i++){
+            if((int)result[i]==1) keyword_index.push_back(i);
+        }
+        for(auto a:keyword_index) std::cout<<a<<" ";
+        std::cout<<std::endl;
 
-#pragma omp parallel for num_threads(thread_count)
-        for (int i = 0; i < server_file_len; i++) {
-            io.ReceiveBlock(a);
-            index_num[i] = a;
-        }
-        std::cout << "receive file finish" << std::endl;
-        //use map to save mapping indexs of hash(keywords) in order to achieve fast finding
-        // construct map
-        std::map<std::uint64_t, std::uint64_t> m;
-        // data insert map
-//#pragma omp parallel for num_threads(thread_count)
-        for (int i = 0; i < index_num.size(); i++) {
-            std::uint64_t index = Block::BlockToUint64High(index_num[i]);
-            std::uint64_t keyword = Block::BlockToInt64(index_num[i]);
-            m[keyword] = index;
-        }
-
-        std::vector<std::uint64_t> keyword_index(keyword.size());
-//#pragma omp parallel for num_threads(thread_count)
-        for (int i = 0; i < keyword.size(); i++) {
-            auto a = Hash::StringToBlock(keyword[i]);
-            auto s = Block::BlockToInt64(a);
-            std::map<std::uint64_t, std::uint64_t>::iterator it = m.find(
-                    s);  // 在 std::map 容器中查找 key 对应的 value
-            if (it != m.end()) {
-                keyword_index[i] = (it->second);
-            }
-        }
         std::cout << "keyword_inde size= " << keyword_index.size() << std::endl;
-        auto start_time = std::chrono::steady_clock::now();
+
         /*The preprocessing of the files has been completed */
         cout << "Main: Generating galois keys for client" << endl;
         /*create GaloisKeys*/
@@ -163,11 +134,12 @@ namespace SEALPIRKEYWORD {
     } //client
 
     void Server(NetIO &io, PirParams params, const EncryptionParameters &enc_params, std::string filename) {
-        /*, unique_ptr<uint8_t[]> &db1*/
+        auto start_time = std::chrono::steady_clock::now();
         PIRServer server(enc_params, params);
-        /*read file*/
+
         std::ifstream fin;
         std::vector<std::vector<std::string>> file_data;
+        std::vector<block> vec_y;
         fin.open("B_PIR_DATA.txt", std::ios::binary);
         if (!fin) {
             std::cout << "Failed to open file" << std::endl;
@@ -187,33 +159,17 @@ namespace SEALPIRKEYWORD {
                 line.erase(0, pos + 1);
             }
             row.push_back(line);
+            vec_y.push_back(Block::MakeBlock('0LL',std::stoull(row[1])));
             file_data.push_back(row); /*save data*/
 
         }
         fin.close();
-        /*
-         * mapping keyword-> hash(keyword)
-         * block=(index,hash(keyword)
-         * */
-        std::vector<block> hash_index(file_data.size());
-#pragma omp parallel for num_threads(thread_count)
-        for (auto i = 0; i < file_data.size(); i++) {
-            auto s = Hash::StringToBlock(file_data[i][1]);
-            block a = Block::MakeBlock(std::stoull(file_data[i][0]), Block::BlockToInt64(s));
-            hash_index[i] = a;
-        }
 
-        std::cout << "Send file size" << std::endl;
-        io.SendBlock(Block::MakeBlock(0LL, hash_index.size()));
-        std::cout << "The file length has been sent successfully" << std::endl;
-        std::cout << "start send file data" << std::endl;
-#pragma omp parallel for num_threads(thread_count)
-        for (auto i = 0; i < hash_index.size(); i++) {
-            io.SendBlock(hash_index[i]);
-        }
+        eccmqRPMT::PP pp;
+        pp=eccmqRPMT::Setup("bloom",40,1000000,10);
+        eccmqRPMT::Server(io,pp,vec_y);
 
-        std::cout << "file data send successfully" << std::endl;
-        auto start_time = std::chrono::steady_clock::now();
+        //auto start_time = std::chrono::steady_clock::now();
         block c;
         io.ReceiveBlock(c);
         int gas_len = Block::BlockToInt64(c);
@@ -237,7 +193,6 @@ namespace SEALPIRKEYWORD {
                 db.get()[(i * str.size()) + j] = str[j] - '0';
             }
         }
-
 
         // Measure database setup
         cout << "Main: database pre processed " << endl;

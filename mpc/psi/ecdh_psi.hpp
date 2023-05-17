@@ -250,9 +250,8 @@ namespace ECDHPSI {
 #else
 
 
-    std::vector<uint8_t> Server(NetIO &io, PP &pp, std::vector<block> &vec_Y)
-    {
-        if(pp.SERVER_LEN != vec_Y.size()){
+    std::vector<uint8_t> Server(NetIO &io, PP &pp, std::vector<block> &vec_Y) {
+        if (pp.SERVER_LEN != vec_Y.size()) {
             std::cerr << "input size of vec_Y does not match public parameters" << std::endl;
             exit(1);
         }
@@ -268,34 +267,34 @@ namespace ECDHPSI {
         std::vector<EC25519Point> vec_Fk1_Y(pp.SERVER_LEN);
 
 #pragma omp parallel for num_threads(thread_count)
-        for(auto i = 0; i < pp.SERVER_LEN; i++){
+        for (auto i = 0; i < pp.SERVER_LEN; i++) {
             Hash::BlockToBytes(vec_Y[i], vec_Hash_Y[i].px, 32);
             x25519_scalar_mulx(vec_Fk1_Y[i].px, k1, vec_Hash_Y[i].px);
         }
 
         io.SendEC25519Points(vec_Fk1_Y.data(), pp.SERVER_LEN);
 
-        std::cout <<"cwPRF-based mqRPMT [step 1]: Server ===> F_k1(y_i) ===> Client";
+        std::cout << "cwPRF-based mqRPMT [step 1]: Server ===> F_k1(y_i) ===> Client";
 
-        std::cout << " [" << 32*pp.SERVER_LEN/(1024*1024) << " MB]" << std::endl;
+        std::cout << " [" << 32 * pp.SERVER_LEN / (1024 * 1024) << " MB]" << std::endl;
 
         std::vector<EC25519Point> vec_Fk2_X(pp.CLIENT_LEN);
-        io.ReceiveEC25519Points(vec_Fk2_X.data(),  pp.CLIENT_LEN);
+        io.ReceiveEC25519Points(vec_Fk2_X.data(), pp.CLIENT_LEN);
 
         std::vector<EC25519Point> vec_Fk1k2_X(pp.CLIENT_LEN);
 #pragma omp parallel for num_threads(thread_count)
-        for(auto i = 0; i < pp.CLIENT_LEN; i++){
+        for (auto i = 0; i < pp.CLIENT_LEN; i++) {
             x25519_scalar_mulx(vec_Fk1k2_X[i].px, k1, vec_Fk2_X[i].px); // (H(x_i)^k2)^k1
         }
 
         // compute the indication bit vector
         std::vector<uint8_t> vec_indication_bit(pp.CLIENT_LEN);
 
-        if(pp.filter_type == "shuffle"){
+        if (pp.filter_type == "shuffle") {
             std::cerr << "does not support shuffle" << std::endl;
         }
 
-        if(pp.filter_type == "bloom"){
+        if (pp.filter_type == "bloom") {
             BloomFilter filter;
             // get the size of filter
             size_t filter_size = filter.ObjectSize();
@@ -314,16 +313,15 @@ namespace ECDHPSI {
         auto end_time = std::chrono::steady_clock::now();
         auto running_time = end_time - start_time;
         std::cout << "cwPRF-mqRPMT: Server side takes time = "
-                  << std::chrono::duration <double, std::milli> (running_time).count() << " ms" << std::endl;
+                  << std::chrono::duration<double, std::milli>(running_time).count() << " ms" << std::endl;
 
         PrintSplitLine('-');
 
         return vec_indication_bit;
     }
 
-    void Client(NetIO &io, PP &pp, std::vector<block> &vec_X)
-    {
-        if(pp.CLIENT_LEN != vec_X.size()){
+    void Client(NetIO &io, PP &pp, std::vector<block> &vec_X) {
+        if (pp.CLIENT_LEN != vec_X.size()) {
             std::cerr << "input size of vec_Y does not match public parameters" << std::endl;
             exit(1);
         }
@@ -338,7 +336,7 @@ namespace ECDHPSI {
         std::vector<EC25519Point> vec_Hash_X(pp.CLIENT_LEN);
         std::vector<EC25519Point> vec_Fk2_X(pp.CLIENT_LEN);
 #pragma omp parallel for num_threads(thread_count)
-        for(auto i = 0; i < pp.CLIENT_LEN; i++){
+        for (auto i = 0; i < pp.CLIENT_LEN; i++) {
             Hash::BlockToBytes(vec_X[i], vec_Hash_X[i].px, 32);
             x25519_scalar_mulx(vec_Fk2_X[i].px, k2, vec_Hash_X[i].px);
         }
@@ -350,24 +348,24 @@ namespace ECDHPSI {
         // then send
         io.SendEC25519Points(vec_Fk2_X.data(), pp.CLIENT_LEN);
 
-        std::cout <<"cwPRF-based mqRPMT [step 2]: Client ===> F_k2(x_i) ===> Server";
+        std::cout << "cwPRF-based mqRPMT [step 2]: Client ===> F_k2(x_i) ===> Server";
 
-        std::cout << " [" << 32*pp.CLIENT_LEN/(1024*1024) << " MB]" << std::endl;
+        std::cout << " [" << 32 * pp.CLIENT_LEN / (1024 * 1024) << " MB]" << std::endl;
 
 
         std::vector<EC25519Point> vec_Fk2k1_Y(pp.SERVER_LEN);
 #pragma omp parallel for num_threads(thread_count)
-        for(auto i = 0; i < pp.SERVER_LEN; i++){
+        for (auto i = 0; i < pp.SERVER_LEN; i++) {
             x25519_scalar_mulx(vec_Fk2k1_Y[i].px, k2, vec_Fk1_Y[i].px); // (H(x_i)^k2)^k1
         }
 
         // permutation
-        if(pp.filter_type == "shuffle"){
+        if (pp.filter_type == "shuffle") {
             std::cerr << "does not support shuffle" << std::endl;
         }
 
         // generate and send bloom filter
-        if(pp.filter_type == "bloom"){
+        if (pp.filter_type == "bloom") {
 
             BloomFilter filter(vec_Fk2k1_Y.size(), pp.statistical_security_parameter);
 
@@ -379,8 +377,8 @@ namespace ECDHPSI {
             char *buffer = new char[filter_size];
             filter.WriteObject(buffer);
             io.SendBytes(buffer, filter_size);
-            std::cout <<"cwPRF-based mqRPMT [step 2]: Client ===> BloomFilter(F_k2k1(y_i)) ===> Server";
-            std::cout << " [" << (double)filter_size/(1024*1024) << " MB]" << std::endl;
+            std::cout << "cwPRF-based mqRPMT [step 2]: Client ===> BloomFilter(F_k2k1(y_i)) ===> Server";
+            std::cout << " [" << (double) filter_size / (1024 * 1024) << " MB]" << std::endl;
 
             delete[] buffer;
         }
@@ -388,7 +386,7 @@ namespace ECDHPSI {
         auto end_time = std::chrono::steady_clock::now();
         auto running_time = end_time - start_time;
         std::cout << "cwPRF-mqRPMT: Client side takes time = "
-                  << std::chrono::duration <double, std::milli> (running_time).count() << " ms" << std::endl;
+                  << std::chrono::duration<double, std::milli>(running_time).count() << " ms" << std::endl;
 
 
         PrintSplitLine('-');

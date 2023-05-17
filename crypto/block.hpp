@@ -33,6 +33,15 @@ namespace Block {
     inline uint64_t BlockToUint64High(const block &a) {
         return _mm_extract_epi64(a, 1);  // 将 block 中索引为1的64位整数单独提取出来，即返回高64位
     }
+    //返回低64位整数  该函数 需要在编译指令中加入 -msse4.2
+    inline uint64_t BlockToUint64Low(const block &a) {
+        return _mm_extract_epi64(a, 0);  // 将 block 中索引为1的64位整数单独提取出来，即返回高64位
+    }
+
+    // char buffer to block
+    inline void CharBufferToBlock(const unsigned char *in,block &a){
+        a= _mm_loadu_si128(reinterpret_cast<const __m128i*>(in));
+    }
 
 
     const block zero_block = _mm_set_epi64x(0, 0);  // 初始化一个所有位均为 0 的 block 常量

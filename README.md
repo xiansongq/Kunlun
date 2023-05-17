@@ -26,6 +26,8 @@ If the above two issues get solved, the performance of Kunlun will be better.
 * wrap _m128i as class?
 * silient OT
 * overload << >> for serialization
+* use cuckoo filter to based-OTE psi
+* VOLE
 
 
 ## Specifications

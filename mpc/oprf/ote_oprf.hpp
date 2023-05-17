@@ -362,7 +362,7 @@ std::vector<std::vector<uint8_t>> Client(NetIO &io, PP &pp, std::vector<block> &
     std::vector<block> vec_K1 = PRG::GenRandomBlocks(seed, pp.matrix_width);
 
 	NPOT::Send(io, pp.npot_part, vec_K0, vec_K1, pp.matrix_width);
-
+    //PrintPP(pp);
     /* step2: compute F_k(x) (F: {0,1}^128 * {0,1}^* -> {0,1}^128) */
     size_t log_height_byte = (pp.log_matrix_height + 7) >> 3; 
     size_t split_bucket_size = sizeof(block) / log_height_byte;
