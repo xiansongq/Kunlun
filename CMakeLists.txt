@@ -5,9 +5,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 PROJECT(Kunlun)
 # On some machines, the path of OpenSSL is  /usr/local/lib64/openssl/libcrypto.a
 IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    SET(OPENSSL_LIBRARIES /usr/local/lib64/libcrypto.a /usr/local/lib64/libssl.a)
-    SET(OPENSSL_INCLUDE_DIR /usr/local/include)
-    SET(OPENSSL_DIR /usr/local/lib64)
+    SET(OPENSSL_LIBRARIES /usr/local/openssl/lib64/libcrypto.a /usr/local/openssl/lib64/libssl.a)
+    SET(OPENSSL_INCLUDE_DIR /usr/local/openssl/include)
+    SET(OPENSSL_DIR /usr/local/openssl/lib64)
 ELSEIF(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     SET(OPENSSL_LIBRARIES /usr/local/lib/libcrypto.a /usr/local/lib/libssl.a)
     SET(OPENSSL_INCLUDE_DIR /usr/local/include)
@@ -242,6 +242,27 @@ target_link_libraries(test_label_peqt ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${
 add_executable(test_keyword_pir test/mytest/test_keywordpir.cpp)
 target_link_libraries(test_keyword_pir ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
 
-#test_poly
-add_executable(test_polynomial test/mytest/test_polynomial.cpp)
-target_link_libraries(test_polynomial ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+##test_poly
+#add_executable(test_polynomial test/mytest/test_polynomial.cpp)
+#target_link_libraries(test_polynomial ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#test_cuckoo_filter
+add_executable(mytest_cuckoo_filter test/mytest/test_cuckoo_filter.cpp)
+target_link_libraries(mytest_cuckoo_filter ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+#test_psi
+add_executable(test_psi test/mytest/test_psi.cpp)
+target_link_libraries(test_psi ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+add_executable(splitdata test/mytest/splitdata.cpp)
+target_link_libraries(splitdata ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})
+
+
+
+#labelpsi
+add_library(labelpsi  mpc/labelpsi/psi.h mpc/labelpsi/psi.cpp  mpc/labelpsi/windowing.cpp mpc/labelpsi/hashing.cpp mpc/labelpsi/random.cpp mpc/labelpsi/polynomials.cpp)
+
+target_link_libraries(labelpsi SEAL::seal)
+
+add_executable(label test/mytest/test_labelpsi.cpp)
+target_link_libraries(label  labelpsi ${OPENSSL_LIBRARIES} OpenMP::OpenMP_CXX ${CMAKE_DL_LIBS})

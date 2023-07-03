@@ -10,7 +10,7 @@ int main(){
     std::cerr << "Using Curve 25519" << std::endl;
 #endif
     ECDHPSI::PP pp;
-    pp=ECDHPSI::Setup("bloom",40,20,20);
+    pp=ECDHPSI::Setup("bloom",40,10,10);
     PRG::Seed seed=PRG::SetSeed(fixed_seed,0);
     std::vector<block> vecx=PRG::GenRandomBlocks(seed,pp.SERVER_LEN);
     std::vector<block> vecy = PRG::GenRandomBlocks(seed, pp.CLIENT_LEN);
@@ -37,7 +37,7 @@ int main(){
     if (party == "receiver") {
         NetIO server("server", "127.0.0.1", 8091);
         vec_intersection_prime =ECDHPSI::Server(server, pp, vecy);
-        std::cout<<(int)vec_intersection_prime[1]<<std::endl;
+        std::cout<<(int)vec_intersection_prime.size()<<std::endl;
     }
     CRYPTO_Finalize();
 

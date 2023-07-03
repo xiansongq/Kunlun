@@ -37,12 +37,6 @@ namespace OPRFPSI {
             io.ReceiveBytes(buffer, filter_size);
             filter.ReadObject(buffer);
             filter.PrintInfo();
-//            BloomFilter filter;
-//            size_t filter_size = filter.ObjectSize();
-//            io.ReceiveInteger(filter_size);
-//            char *buffer = new char[filter_size];
-//            io.ReceiveBytes(buffer, filter_size);
-//            filter.ReadObject(buffer);
             auto bloom_start_time = std::chrono::steady_clock::now();
 //#pragma omp parallel for num_threads(thread_count)
 //            for(int i=0;i<oprf_value.size();i++){
@@ -52,8 +46,13 @@ namespace OPRFPSI {
 //                    else vec_indication_bit[i]=0;
 //                }
 //            }
-            vec_indication_bit = filter.Contain(oprf_value);
-            std::cout << (int) vec_indication_bit[9] << std::endl;
+            for(auto i=0;i<oprf_value.size();i++){
+                std::string str="";
+                for(auto a:oprf_value[i]) str+=a;
+                vec_indication_bit[i]=filter.Contain(str);
+            }
+            //vec_indication_bit = filter.Contain(oprf_value);
+            std::cout << (int) vec_indication_bit[9]<<"-----------"<<vec_indication_bit.size()<< std::endl;
             //vec_indication_bit = filter.Contain(oprf_value);
             auto bloom_end_time = std::chrono::steady_clock::now();
             auto running_time1 = bloom_end_time - bloom_start_time;
@@ -114,12 +113,17 @@ namespace OPRFPSI {
         //std::vector<std::vector<uint8_t>> oprf_value = OTEOPRF::Evaluate(pp, oprf_key, vec_X, vec_X.size());
         std::string choice = "bloom";
         if (choice == "bloom") {
-            double desired_false_positive_probability = 1/pow(2, 20);
+            double desired_false_positive_probability = 1/pow(2, 8);
             CuckooFilter filter(oprf_value.size()*1.2, desired_false_positive_probability);
 
             //BloomFilter filter(oprf_value.size(), 40);
             auto bloom_start_time = std::chrono::steady_clock::now();
-            filter.InsertVec(oprf_value);
+            for(auto i=0;i<oprf_value.size();i++){
+                std::string str="";
+                for(auto a:oprf_value[i]) str+=a;
+                filter.PlainInsert(str.data(),str.size());
+            }
+            //filter.InsertVec(oprf_value);
             filter.PrintInfo();
             //filter.Insert(oprf_value);
             auto bloom_end_time = std::chrono::steady_clock::now();

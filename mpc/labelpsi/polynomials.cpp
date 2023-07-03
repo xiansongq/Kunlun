@@ -1,30 +1,8 @@
-//
-// Created by 17579 on 2023/5/11.
-//
+#include <cassert>
+#include <set>
 
-#ifndef KUNLUN_POLYNOMIAL_HPP
-#define KUNLUN_POLYNOMIAL_HPP
+#include "polynomials.h"
 
-#include "../include/std.inc"
-
-
-/*
-The functions in this file implement some operations on polynomials, interpreted
-as vectors of coefficients.
-*/
-
-// if p is at most 32 bits, arithmetic modulo p can be implemented by directly
-// using 64-bit arithmetic and reducing mod p. but if it's bigger,
-// multiplication will overflow, so we have to use a slower multiplication
-// algorithm.
-#ifdef MODULUS_IS_SMALL
-#define MUL_MOD(a, b, m) (((a)*(b)) % (m))
-#else
-// using __uint128_t, which is a GCC-specific extension
-#define MUL_MOD(a, b, m) ((((__uint128_t) (a)) * ((__uint128_t) (b))) % (m))
-#endif
-
-/* modexp(a, b, m) computes a^b mod m in O(log b) time. */
 uint64_t modexp(uint64_t base, uint64_t exponent, uint64_t modulus) {
     uint64_t result = 1;
     while (exponent > 0) {
@@ -37,18 +15,11 @@ uint64_t modexp(uint64_t base, uint64_t exponent, uint64_t modulus) {
     return result;
 }
 
-/* modinv(a, m) computes a^-1 mod m in O(log m) time. */
 uint64_t modinv(uint64_t x, uint64_t modulus) {
     return modexp(x, modulus - 2, modulus);
 }
 
-/*
-polynomial_from_roots(l) computes the coefficients of the polynomial
-(x - l[0]) * (x - l[1]) * ...
-
-time complexity: O(n²), where n is the size of l
-*/
-void polynomial_from_roots(std::vector<uint64_t> &roots, std::vector<uint64_t> &coeffs, uint64_t modulus) {
+void polynomial_from_roots(vector<uint64_t> &roots, vector<uint64_t> &coeffs, uint64_t modulus) {
     coeffs.clear();
     coeffs.resize(roots.size() + 1);
     coeffs[0] = 1;
@@ -64,19 +35,11 @@ void polynomial_from_roots(std::vector<uint64_t> &roots, std::vector<uint64_t> &
     }
 }
 
-/*
-polynomial_from_points(xs, ys) computes the coefficients of a
-(xs.size() - 1)-degree polynomial f with f(xs[i]) = ys[i] for each i.
-
-if two points with the same x exist, the behavior is undefined, even if their y
-are the same.
-
-time complexity: O(n²), where n is the size of xs
-*/
-void polynomial_from_points(std::vector<uint64_t> &xs,
-                            std::vector<uint64_t> &ys,
-                            std::vector<uint64_t> &coeffs,
-                            uint64_t modulus) {
+void polynomial_from_points(vector<uint64_t> &xs,
+                            vector<uint64_t> &ys,
+                            vector<uint64_t> &coeffs,
+                            uint64_t modulus)
+{
     assert(xs.size() == ys.size());
     coeffs.clear();
     coeffs.resize(xs.size());
@@ -87,13 +50,13 @@ void polynomial_from_points(std::vector<uint64_t> &xs,
 
     // at iteration i of the loop, basis contains the coefficients of the basis
     // polynomial (x - xs[0]) * (x - xs[1]) * ... * (x - xs[i - 1])
-    std::vector<uint64_t> basis(xs.size());
+    vector<uint64_t> basis(xs.size());
     basis[0] = 1;
 
     // at iteration i of the loop, ddif[j] contains the divided difference
     // [ys[j], ys[j + 1], ..., ys[j + i]]. thus initially, when i = 0,
     // ddif[j] = [ys[j]] = ys[j]
-    std::vector<uint64_t> ddif = ys;
+    vector<uint64_t> ddif = ys;
 
     for (size_t i = 0; i < xs.size(); i++) {
         for (size_t j = 0; j < i + 1; j++) {
@@ -119,5 +82,3 @@ void polynomial_from_points(std::vector<uint64_t> &xs,
         }
     }
 }
-
-#endif //KUNLUN_POLYNOMIAL_HPP

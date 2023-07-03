@@ -1,3 +1,4 @@
+/*
 //
 // Created by xiansong on 2023/5/4.
 //
@@ -6,10 +7,12 @@
 #include "../../crypto/setup.hpp"
 #include "../../mpc/psi/label_psi.hpp"
 
+*/
 /*
  * test based-OTE PRF private set intersection
  *
- * */
+ * *//*
+
 int main() {
     CRYPTO_Initialize();
     std::cout << "label psi is begings >>>" << std::endl;
@@ -45,10 +48,14 @@ int main() {
     }
     while (std::getline(fin1, line)) {
         std::vector<std::string> row;
-        row.push_back(std::to_string(i++));   /*add index colunms*/
+        row.push_back(std::to_string(i++));   */
+/*add index colunms*//*
+
         size_t pos = 0;
         std::string token;
-        /* Split each row of data into multiple columns.*/
+        */
+/* Split each row of data into multiple columns.*//*
+
         while ((pos = line.find(",")) != std::string::npos) {
             token = line.substr(0, pos);
             row.push_back(token);
@@ -61,7 +68,9 @@ int main() {
         vecy.push_back(Block::MakeBlock('0LL',std::stoull(row[1])));
         std::string str="";
         for(auto a:row) str+=a;
-        label.push_back(Hash::StringToBlock(str)); /*save data*/
+        label.push_back(Hash::StringToBlock(str)); */
+/*save data*//*
+
 
     }
     fin1.close();
@@ -76,11 +85,13 @@ int main() {
 //    }
 //    fin1.close();
 
-    /*必须做数据补全 才能成功执行协议
+    */
+/*必须做数据补全 才能成功执行协议
      * 现在 数据有1000000 条
      * 选择 2^20
      * 那么还差 48576条数据
-     * */
+     * *//*
+
     for (int i = 0; i < 1048566; ++i) vecx.push_back(Block::MakeBlock(0LL, 0LL));
     int len = 48576;
     //for (int i = 0; i < len; i++) vecx.push_back(Block::MakeBlock(0LL, 0LL));
@@ -129,4 +140,4 @@ int main() {
     CRYPTO_Finalize();
     return 0;
 
-}
+}*/

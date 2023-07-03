@@ -2,13 +2,33 @@
 // Created by xiansong on 2023/5/4.
 //
 
-#include "../../mpc/psi/psi_from_cuckoo_filter.hpp"
+#include "../../mpc/psi/psi_from_oprf.hpp"
 #include "../../crypto/setup.hpp"
+#include <thread>
 
 /*
  * test based-OTE PRF private set intersection
  *
  * */
+
+
+void startserver(OTEOPRF::PP pp, std::vector<block> vecx) {
+    std::cout << "startserver start----" << std::endl;
+    NetIO server("server", "127.0.0.1", 8090);
+    auto ans = OPRFPSI::Receive(server, pp, vecx);
+    std::cout<<"ans: "<<Block::BlockToInt64(ans[0])<<std::endl;
+    std::cout << "ans size: " << ans.size() << std::endl;
+    std::cout << "startserver end----" << std::endl;
+}
+
+
+void startclient(OTEOPRF::PP pp, std::vector<block> vecy) {
+    std::cout << "startclient start----" << std::endl;
+    NetIO client("client", "127.0.0.1", 8090);
+    OPRFPSI::Send(client, pp, vecy);
+    std::cout << "startclient end----" << std::endl;
+}
+
 int main() {
     CRYPTO_Initialize();
     std::cout << "oprf psi is begings >>>" << std::endl;
@@ -16,6 +36,7 @@ int main() {
     OTEOPRF::PP pp;
     pp = OTEOPRF::Setup(20, 40);
     std::vector<block> vecx;
+    std::vector<block> vecy;
     //从文件读取数据
     std::ifstream fin;
     fin.open("A_PSI_DATA.txt", std::ios::binary);
@@ -24,7 +45,7 @@ int main() {
         return -1;
     }
     std::string line;
-    while (std::getline(fin, line) ) {
+    while (std::getline(fin, line)) {
         std::stringstream stream(line);
         uint64_t a;
         stream >> a;
@@ -32,7 +53,7 @@ int main() {
 
     }
     fin.close();
-    std::vector<block> vecy;
+
     std::ifstream fin1;
     fin1.open("B_PSI_DATA.txt", std::ios::binary);
     if (!fin1) {
@@ -79,42 +100,67 @@ int main() {
     Block::PrintBlock(vec_x[563866]);
     Block::PrintBlock(vec_y[563866]);*/
 
-    std::string party;
-    std::cout
-            << "please select your role between sender and receiver (hint: first start receiver, then start sender) ==> ";
 
-    std::getline(std::cin, party);
-    PrintSplitLine('-');
-    if (party == "sender") {
-        NetIO client("client", "127.0.0.1", 8090);
-        OPRFPSI::Send(client, pp, vecx);
 
-    }
-    std::vector<block> vec_intersection_prime;
-    if (party == "receiver") {
-        NetIO server("server", "", 8090);
-        vec_intersection_prime = OPRFPSI::Receive(server, pp, vecy);
-        std::cout<<vec_intersection_prime.size()-len<<std::endl;
-        std::cout<<"receiver output intersection to file"<<std::endl;
-        //output intersection result to csv file
-        std::ofstream fout;
-        fout.open("oprf_psi_out.csv", std::ios::out | std::ios::binary);
-        if (!fout) {
-            std::cerr << "oprf_psi_out.csv open error" << std::endl;
-            exit(1);
-        }
-        if (fout.is_open()) {
-            for (int i = 0; i < vec_intersection_prime.size()-len; i++) {
-                std::uint64_t a = Block::BlockToInt64(vec_intersection_prime[i]);
-                std::string str= std::to_string(a);
-                fout.write(str.c_str(),str.size());
-                fout <<std::endl ;
-            }
-        }
-        fout.close();
-        std::cout<<"output intersection to file success"<<std::endl;
-    }
 
+//            auto serverthread = std::thread([&]() {
+//                NetIO server("server", "localhost", 8090);
+//
+//            });
+//            auto clientthread = std::thread([&]() {
+//                NetIO client("client", "localhost", 8090);
+//
+//            });
+//
+//            NetIO *server;
+//            NetIO *client;
+//            //startserver(pp,vecx);
+    std::thread serverthread(startserver, pp, vecx);
+    std::thread clientthread(startclient, pp, vecy);
+    serverthread.join();
+    clientthread.join();
+    //OPRFPSI::Receive(*server, pp, vecx);
+    //OPRFPSI::Send(*client, pp, vecy);
+
+    // startclient(pp,vecy);
+
+
+    /*  std::string party;
+      std::cout
+              << "please select your role between sender and receiver (hint: first start receiver, then start sender) ==> ";
+
+      std::getline(std::cin, party);
+      PrintSplitLine('-');
+      if (party == "sender") {
+          NetIO client("client", "127.0.0.1", 8090);
+          OPRFPSI::Send(client, pp, vecx);
+
+      }
+      std::vector<block> vec_intersection_prime;
+      if (party == "receiver") {
+          NetIO server("server", "", 8090);
+          vec_intersection_prime = OPRFPSI::Receive(server, pp, vecy);
+          std::cout<<vec_intersection_prime.size()-len<<std::endl;
+          std::cout<<"receiver output intersection to file"<<std::endl;
+          //output intersection result to csv file
+          std::ofstream fout;
+          fout.open("oprf_psi_out.csv", std::ios::out | std::ios::binary);
+          if (!fout) {
+              std::cerr << "oprf_psi_out.csv open error" << std::endl;
+              exit(1);
+          }
+          if (fout.is_open()) {
+              for (int i = 0; i < vec_intersection_prime.size()-len; i++) {
+                  std::uint64_t a = Block::BlockToInt64(vec_intersection_prime[i]);
+                  std::string str= std::to_string(a);
+                  fout.write(str.c_str(),str.size());
+                  fout <<std::endl ;
+              }
+          }
+          fout.close();
+          std::cout<<"output intersection to file success"<<std::endl;
+      }
+  */
     CRYPTO_Finalize();
     return 0;
 

@@ -116,6 +116,11 @@ namespace SEALPIRKEYWORD {
             seal::SEALContext context(enc_params);
             PirReply reply = client.deserialize_reply(sreply, context);
             vector<uint8_t> elems = client.decode_reply(reply, offset);
+//            std::string ele="";
+//            for(auto e:elems){
+//                ele+=std::to_string(e);
+//            }
+//            std::cout<<"elems: "<<ele<<std::endl;
             ans.push_back(elems);
             if (i != keyword_index.size() - 1)
                 isend = "1";

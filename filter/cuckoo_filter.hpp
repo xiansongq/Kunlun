@@ -175,6 +175,7 @@ public:
                 for(auto j=0;j<element[i].size();j++){
                     result=(result<<8)|element[i][j];
                 }
+                std::cout<<result<<std::endl;
                 //unsigned char buffer[element[i].size()];
                 //memcpy(buffer, element[i].data(), element[i].size());
                 //std::cout<<buffer<<std::endl;
