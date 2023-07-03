@@ -109,11 +109,11 @@ int main(){
         vector<size_t> receiver_matches;
         receiver_matches = user.decrypt_matches(sender_matches);
         cout << receiver_matches.size() << " matches found: ";
-        // for (auto i : receiver_matches) {
-        //     assert(i < receiver_buckets.size());
-        //     assert(receiver_buckets[i] != BUCKET_EMPTY);
-        //     cout << receiver_inputs[receiver_buckets[i].first] << " ";
-        // }
+         for (auto i : receiver_matches) {
+             //std::assert(i < receiver_buckets.size());
+             //std::assert(receiver_buckets[i] != BUCKET_EMPTY);
+             cout << receiver_inputs[receiver_buckets[i].first] << " ";
+         }
     }
 
     cout << endl;
