@@ -29,14 +29,14 @@ void multiply_by_random_mask(Ciphertext &ciphertext,
     Plaintext mask;
     vector<uint64_t> mask_coefficients;
     for (size_t j = 0; j < slot_count; j++) {
-        mask_coefficients.push_back( random_nonzero_integer(random, plain_modulus));
+        mask_coefficients.push_back(random_nonzero_integer(random, plain_modulus));
     }
     encoder->encode(mask_coefficients, mask);
     evaluator->multiply_plain_inplace(ciphertext, mask);
     evaluator->relinearize_inplace(ciphertext, relin_keys);
 }
 
-SEALContext PSIParams::createcontext(size_t poly_modulus_degree) {
+/*SEALContext PSIParams::createcontext(size_t poly_modulus_degree) {
 
     assert((poly_modulus_degree_ == 8192) || (poly_modulus_degree_ == 16384));
     EncryptionParameters parms(scheme_type::bfv);
@@ -45,7 +45,7 @@ SEALContext PSIParams::createcontext(size_t poly_modulus_degree) {
     parms.set_plain_modulus(plain_modulus());
 
     return SEALContext(parms);
-}
+}*/
 
 
 PSIParams::PSIParams(size_t receiver_size1, size_t sender_size1, size_t input_bits1, size_t poly_modulus_degree)
@@ -249,7 +249,6 @@ PSIReceiver::PSIReceiver(PSIParams &params1) : params(params1) {
     secret_key = keygen->secret_key();
 }
 
-
 #ifdef DEBUG_WITH_KEY_LEAK
 receiver_key_leaked = &secret_key;
 #endif
@@ -260,9 +259,7 @@ vector<Ciphertext> PSIReceiver::encrypt_inputs(vector<uint64_t> &inputs, vector<
 
     std::unique_ptr<seal::Encryptor> encryptor = make_unique<Encryptor>(std::move(*(params.context)),
                                                                         std::move(public_key_));
-    //Encryptor encryptor(params.context, public_key_);
     std::unique_ptr<seal::BatchEncoder> encoder = make_unique<BatchEncoder>(std::move(*(params.context)));
-    //BatchEncoder encoder(params.context);
 
     auto random_factory(UniformRandomGeneratorFactory::DefaultFactory());
     auto random = random_factory->create({});
@@ -289,36 +286,38 @@ vector<Ciphertext> PSIReceiver::encrypt_inputs(vector<uint64_t> &inputs, vector<
 
 
 vector<size_t> PSIReceiver::decrypt_matches(vector<Ciphertext> &encrypted_matches) {
+    std::cout << "encrypted_matches size: " << encrypted_matches.size() << std::endl;
     std::unique_ptr<seal::Decryptor> decryptor = make_unique<Decryptor>(*(params.context), secret_key);
     std::unique_ptr<seal::BatchEncoder> encoder = make_unique<BatchEncoder>(*(params.context));
-    //Decryptor decryptor(params.context, secret_key);
-    //BatchEncoder encoder(params.context);
     size_t slot_count = encoder->slot_count();
-
+    size_t row_size = slot_count / 2;
     size_t bucket_count = (1 << params.bucket_count_log());
-
     vector<size_t> result;
-
     Plaintext decrypted;
     for (size_t i = 0; i < encrypted_matches.size(); i++) {
         decryptor->decrypt(encrypted_matches[i], decrypted);
-        encoder->decode(decrypted, result);
-
-//        for (size_t j = 0; j < bucket_count; j++) {
-//            if (decrypted[j] == 0) {
-//                result.push_back(j);
-//            }
-//        }
+        for (int i = 0; i < bucket_count; i++) {
+            if (decrypted[i] == 0)
+                std::cout << std::dec << i << " " << decrypted[i] << " ";
+        }
+        std::vector<uint64_t> temp;
+        encoder->decode(decrypted, temp);
+        for (int i = 0; i < bucket_count; i++) {
+            if (temp[i] == 0)
+                std::cout << std::dec << i << " " << temp[i] << " ";
+        }
+        for (size_t j = 0; j < bucket_count; j++) {
+            if (temp[j] == 0) {
+                result.push_back(j);
+            }
+        }
     }
-
+    std::cout << "de result size: " << result.size() << std::endl;
     return result;
 }
 
 vector<pair<size_t, uint64_t>> PSIReceiver::decrypt_labeled_matches(vector<Ciphertext> &encrypted_matches) {
     assert(encrypted_matches.size() % 2 == 0);
-
-    // Decryptor decryptor(params.context, secret_key);
-    // BatchEncoder encoder(params.context);
     std::unique_ptr<seal::Decryptor> decryptor = make_unique<Decryptor>(*(params.context), secret_key);
     std::unique_ptr<seal::BatchEncoder> encoder = make_unique<BatchEncoder>(*(params.context));
     size_t slot_count = encoder->slot_count();
@@ -472,38 +471,31 @@ vector<Ciphertext> PSISender::compute_matches(vector<uint64_t> &inputs,
 
         for (size_t j = 0; j < partition_size + 1; j++) {
             // encode the jth coefficients of all polynomials into a vector
-            Plaintext f_coeffs_enc(bucket_count, bucket_count);
-            std::vector<uint64_t> temp;
+            Plaintext f_coeffs_enc;
+            std::vector<uint64_t> temp(bucket_count);
             for (size_t k = 0; k < bucket_count; k++) {
-                temp.push_back(f_coeffs[k][j]);
+                temp[k] = f_coeffs[k][j];
             }
             encoder->encode(temp, f_coeffs_enc);
-//            for (size_t k = 0; k < bucket_count; k++) {
-//                encoder->encode(f_coeffs[k][j],f_coeffs_enc[k]);
-//                f_coeffs_enc[k] = f_coeffs[k][j];
-//            }
-            Plaintext f_coeffs_plaintext;
-            //encoder->encode(f_coeffs_enc);
 
             Plaintext g_coeffs_enc;
-            Plaintext g_coeffs_plaintext;
             if (labels.has_value()) {
-                g_coeffs_enc.resize(bucket_count);
+                std::vector<uint64_t> tmp(bucket_count);
+                //g_coeffs_enc.resize(bucket_count);
                 for (size_t k = 0; k < bucket_count; k++) {
-                    g_coeffs_enc[k] = (j < g_coeffs[k].size())
-                                      ? g_coeffs[k][j]
-                                      : 0;
+                    tmp[k] = (j < g_coeffs[k].size())
+                             ? g_coeffs[k][j]
+                             : 0;
                 }
-
-                //  encoder.encode(g_coeffs_enc, g_coeffs_plaintext);
+                encoder->encode(tmp, g_coeffs_enc);
             }
             std::unique_ptr<seal::Evaluator> evaluator = std::make_unique<Evaluator>(*(params.context));
             if (j == 0) {
                 // the constant term just goes straight into the result, and
                 // then the other terms will be added into it later.
-                encryptor->encrypt(f_coeffs_plaintext, f_evaluated);
+                encryptor->encrypt(f_coeffs_enc, f_evaluated);
                 if (labels.has_value()) {
-                    encryptor->encrypt(g_coeffs_plaintext, g_evaluated);
+                    encryptor->encrypt(g_coeffs_enc, g_evaluated);
                 }
             } else {
                 // term = receiver_inputs^j * f_coeffs_enc
@@ -551,7 +543,8 @@ vector<Ciphertext> PSISender::compute_matches(vector<uint64_t> &inputs,
 #ifdef DEBUG_WITH_KEY_LEAK
             cerr << "after second mask it is " << decryptor.invariant_noise_budget(f_evaluated) << endl;
 #endif
-            evaluator->add(f_evaluated, g_evaluated, result[2 * partition + 1]);
+            std::unique_ptr<seal::Evaluator> evaluator1 = std::make_unique<Evaluator>(*(params.context));
+            evaluator1->add(f_evaluated, g_evaluated, result[2 * partition + 1]);
 
 #ifdef DEBUG_WITH_KEY_LEAK
             cerr << "after final add it is " << decryptor.invariant_noise_budget(result[2 * partition + 1]) << endl;
@@ -560,6 +553,6 @@ vector<Ciphertext> PSISender::compute_matches(vector<uint64_t> &inputs,
             result[partition] = f_evaluated;
         }
     }
-
+    std::cout << "result size: " << result.size() << std::endl;
     return result;
 }

@@ -4,6 +4,7 @@
 #include "../../mpc/labelpsi/psi.h"
 //#include "../../mpc/labelpsi/random.h"
 #include  "test_util.cpp"
+#include <cassert>
 using namespace std;
 int main(){
     auto random_factory(UniformRandomGeneratorFactory::DefaultFactory());
@@ -15,7 +16,7 @@ int main(){
     size_t poly_modulus_degree = 8192;
     size_t partition_count = 2;//256;
     size_t window_size = 1;
-    bool labeled = false;
+    bool labeled = true;
 
     vector<uint64_t> sender_inputs(sender_N);
     vector<uint64_t> sender_labels(sender_N);
@@ -60,16 +61,19 @@ int main(){
     vector<bucket_slot> receiver_buckets;
     auto receiver_encrypted_inputs = user.encrypt_inputs(receiver_inputs, receiver_buckets);
 
-//    cout << "User's buckets: ";
-//     for (auto x : receiver_buckets) {
+    cout << "User's buckets: ";
+/*     for (auto x : receiver_buckets) {
 //         if (x == BUCKET_EMPTY) {
 //             cout << "--:-- ";
 //         } else {
 //             cout << x.first << ":" << receiver_inputs[x.first] << " ";
 //         }
-//     }
-//     cout << endl;
-//    cout << endl;
+         if(x!=BUCKET_EMPTY) {
+            // cout << x.first << ":" << receiver_inputs[x.first] << " ";
+         }
+     }*/
+     cout << endl;
+    cout << endl;
 
 
     // step 3: the sender evaluates polynomials
@@ -100,19 +104,22 @@ int main(){
         vector<pair<size_t, uint64_t>> receiver_labeled_matches;
         receiver_labeled_matches = user.decrypt_labeled_matches(sender_matches);
         cout << receiver_labeled_matches.size() << " matches found: ";
-        // for (auto i : receiver_matches) {
-        //     assert(i.first < receiver_buckets.size());
-        //     assert(receiver_buckets[i.first] != BUCKET_EMPTY);
-        //     cout << receiver_inputs[receiver_buckets[i.first].first] << "-" << i.second << " ";
-        // }
+         for (auto i : receiver_labeled_matches) {
+             assert(i.first < receiver_buckets.size());
+             assert(receiver_buckets[i.first] != BUCKET_EMPTY);
+             cout << receiver_inputs[receiver_buckets[i.first].first] << "-" << i.second << " ";
+         }
     } else {
+        std::cout<<"sender matcher size: "<<sender_matches.size()<<std::endl;
         vector<size_t> receiver_matches;
         receiver_matches = user.decrypt_matches(sender_matches);
-        cout << receiver_matches.size() << " matches found: ";
+
+        cout << receiver_matches.size() << " matches found: \n";
+        cout<<"receiver bucket size: "<<receiver_buckets.size()<<endl;
          for (auto i : receiver_matches) {
-             //std::assert(i < receiver_buckets.size());
-             //std::assert(receiver_buckets[i] != BUCKET_EMPTY);
-             cout << receiver_inputs[receiver_buckets[i].first] << " ";
+             assert(i < receiver_buckets.size());
+             assert(receiver_buckets[i] != BUCKET_EMPTY);
+             cout << std::hex<<receiver_inputs[receiver_buckets[i].first] << " ";
          }
     }
 
